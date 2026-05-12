@@ -1,0 +1,43 @@
+{
+  "track_id": "4BAAD9",
+  "icao": "4BAAD9",
+  "time_window": {
+    "first_point_unix": 1766843350.0,
+    "last_point_unix": 1766854455.0
+  },
+  "field_elevation": {
+    "method": "fixed_ft_msl",
+    "value": 273.0,
+    "source": "manual",
+    "notes": null,
+    "elevation_ft_msl": 273.0,
+    "elevation_m_msl": 83.2104
+  },
+  "on_ground_window": {
+    "start_unix": 1766854173.0,
+    "end_unix": 1766854455.0
+  },
+  "boundary_rix": {
+    "value": 90.0,
+    "unit": "Km",
+    "distance_km": 90.0
+  },
+  "outlier_multiplier": {
+    "value": 3.0,
+    "unit": "IQR",
+    "multiplier": 3.0
+  },
+  "origin_lat_deg": null,
+  "origin_lon_deg": null,
+  "require_crc_ok": true,
+  "allowed_events": [
+    "velocity",
+    "position"
+  ],
+  "raw_time_column": "ts_utc",
+  "raw_icao_column": "icao",
+  "raw_crc_ok_column": "crc_ok",
+  "raw_event_kind_column": "event_kind",
+  "keyframe_time_quantization_s": 1.0,
+  "notes": {}
+}

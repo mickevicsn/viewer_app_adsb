@@ -1,0 +1,1812 @@
+{
+  "flight_id": "4BAAD9",
+  "icao": "4BAAD9",
+  "created_utc": "2026-05-09T16:47:16.537853+00:00",
+  "steps": [
+    {
+      "name": "01_load_sql_rows",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:37:58.683975+00:00",
+      "details": {
+        "database_path": "C:\\Users\\micke\\V_Spline_module\\adsb_raw.sqlite"
+      },
+      "output": {
+        "row_count": 66892,
+        "loader_report": {
+          "database_path": "C:\\Users\\micke\\V_Spline_module\\adsb_raw.sqlite",
+          "table_name": "parsed_messages",
+          "target_icao": "4BAAD9",
+          "row_count": 66892,
+          "first_seen_unix": 1766843350.0,
+          "last_seen_unix": 1766854459.0,
+          "include_crc_false": true,
+          "first_point_unix_filter": null,
+          "last_point_unix_filter": null,
+          "selected_columns": [
+            "raw_id",
+            "ts_utc",
+            "icao",
+            "df",
+            "tc",
+            "bds",
+            "lat",
+            "lon",
+            "alt",
+            "gs",
+            "track",
+            "callsign",
+            "squawk",
+            "crc",
+            "crc_ok",
+            "decoded_json",
+            "vertical_rate_fpm",
+            "vertical_rate_mps",
+            "vertical_rate_source",
+            "vertical_rate_available"
+          ],
+          "sql": "SELECT \"raw_id\", \"ts_utc\", \"icao\", \"df\", \"tc\", \"bds\", \"lat\", \"lon\", \"alt\", \"gs\", \"track\", \"callsign\", \"squawk\", \"crc\", \"crc_ok\", \"decoded_json\" FROM \"parsed_messages\" WHERE UPPER(CAST(\"icao\" AS TEXT)) = UPPER(?) ORDER BY \"ts_utc\", \"raw_id\"",
+          "loader_config": {
+            "table_name": null,
+            "columns": {
+              "raw_id_column": "raw_id",
+              "time_column": "ts_utc",
+              "icao_column": "icao",
+              "crc_ok_column": "crc_ok",
+              "default_output_columns": [
+                "raw_id",
+                "ts_utc",
+                "icao",
+                "df",
+                "tc",
+                "bds",
+                "lat",
+                "lon",
+                "alt",
+                "gs",
+                "track",
+                "callsign",
+                "squawk",
+                "crc",
+                "crc_ok",
+                "decoded_json",
+                "seen_utc"
+              ]
+            },
+            "include_crc_false": true,
+            "first_point_unix": null,
+            "last_point_unix": null,
+            "strict_output_columns": false,
+            "derive_vertical_rate_columns": true
+          },
+          "derived_vertical_rate_report": {
+            "vertical_rate_row_count": 8361,
+            "vertical_rate_available_row_count": 8361,
+            "vertical_rate_source_counts": {
+              "MISSING": 66892
+            }
+          }
+        }
+      },
+      "duration_s": 3.6808063000207767,
+      "finished_utc": "2026-05-09T16:38:02.364617+00:00"
+    },
+    {
+      "name": "02_normalize_raw_adsb",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:02.366980+00:00",
+      "details": {
+        "input_rows": 66892
+      },
+      "output": {
+        "keyframe_count": 4170,
+        "event_count": 14783,
+        "normalizer_report": {
+          "raw_row_count": 66892,
+          "filtered_row_count": 17062,
+          "valid_time_row_count": 14783,
+          "event_count": 14783,
+          "keyframe_count": 4170,
+          "output_timestamp_count": 4170,
+          "paired_timestamp_count": 3728,
+          "on_ground_window": {
+            "enabled": true,
+            "start_unix": 1766854173.0,
+            "end_unix": 1766854455.0,
+            "altitude_override": "field_elevation",
+            "field_elevation_ft_msl": 273.0,
+            "field_elevation_m_msl": 83.2104,
+            "affected_keyframe_count": 199
+          },
+          "rule_applied": {
+            "track_id": "4BAAD9",
+            "icao": "4BAAD9",
+            "time_window": {
+              "first_point_unix": 1766843350.0,
+              "last_point_unix": 1766854455.0
+            },
+            "field_elevation": {
+              "method": "fixed_ft_msl",
+              "value": 273.0,
+              "source": "manual",
+              "notes": null,
+              "elevation_ft_msl": 273.0,
+              "elevation_m_msl": 83.2104
+            },
+            "on_ground_window": {
+              "start_unix": 1766854173.0,
+              "end_unix": 1766854455.0
+            },
+            "boundary_rix": {
+              "value": 90.0,
+              "unit": "Km",
+              "distance_km": 90.0
+            },
+            "outlier_multiplier": {
+              "value": 3.0,
+              "unit": "IQR",
+              "multiplier": 3.0
+            },
+            "origin_lat_deg": null,
+            "origin_lon_deg": null,
+            "require_crc_ok": true,
+            "allowed_events": [
+              "velocity",
+              "position"
+            ],
+            "raw_time_column": "ts_utc",
+            "raw_icao_column": "icao",
+            "raw_crc_ok_column": "crc_ok",
+            "raw_event_kind_column": "event_kind",
+            "keyframe_time_quantization_s": 1.0,
+            "notes": {}
+          },
+          "normalizer_config": {
+            "columns": {
+              "time_column": "ts_utc",
+              "icao_column": "icao",
+              "lat_column": "lat",
+              "lon_column": "lon",
+              "altitude_ft_column": "alt",
+              "ground_speed_kt_column": "gs",
+              "track_column": "track",
+              "crc_ok_column": "crc_ok",
+              "raw_id_column": "raw_id",
+              "row_id_column": null,
+              "decoded_json_column": "decoded_json",
+              "event_kind_column": "event_kind",
+              "vertical_rate_fpm_column": "vertical_rate_fpm",
+              "vertical_rate_mps_column": "vertical_rate_mps",
+              "seen_utc_column": "seen_utc"
+            },
+            "apply_rule_filters": true,
+            "keep_unpaired_timestamps": true,
+            "parse_vertical_rate_from_decoded_json": true,
+            "keyframe_time_quantization_s": 1.0,
+            "track_unit": "deg",
+            "baro_z_reference": "field",
+            "clip_height_to_zero_for_display": false,
+            "derive_velocity_delta_acceleration": true,
+            "acceleration_max_dt_s": null
+          },
+          "vertical_rate_source": "vertical_rate_mps",
+          "keyframe_time_quantization_s": 1.0,
+          "allowed_events": [
+            "velocity",
+            "position"
+          ],
+          "pre_outlier_row_count": 17062,
+          "post_outlier_row_count": 15707,
+          "pre_start_trim_row_count": 15707,
+          "post_start_trim_row_count": 14783,
+          "outlier_removal": {
+            "enabled": true,
+            "input_rows": 17062,
+            "output_rows": 15707,
+            "removed_rows": 1355,
+            "boundary_rix": {
+              "value": 90.0,
+              "unit": "Km",
+              "distance_km": 90.0
+            },
+            "outlier_multiplier": {
+              "value": 3.0,
+              "unit": "IQR",
+              "multiplier": 3.0
+            },
+            "thresholds": {
+              "distance_from_rix_km": 90.0,
+              "pos_speed_kmh": 852.7266785759161,
+              "vel_accel_mps2": 2.064818953029831
+            },
+            "distance_from_rix": {
+              "count": 919,
+              "denominator": 8701,
+              "fraction": 0.10562004367314101
+            },
+            "pos_speed": {
+              "count": 18,
+              "denominator": 8701,
+              "fraction": 0.0020687277324445467
+            },
+            "vel_accel": {
+              "count": 436,
+              "denominator": 8361,
+              "fraction": 0.05214687238368616
+            },
+            "any": {
+              "count": 1355,
+              "denominator": 17062,
+              "fraction": 0.07941624662993788
+            }
+          },
+          "start_trim": {
+            "enabled": true,
+            "rule": "drop_rows_before_first_post_filter_position",
+            "input_rows": 15707,
+            "output_rows": 14783,
+            "removed_rows": 924,
+            "first_position_time_s": 1766850172.0,
+            "first_position_keyframe_t": 1766850172.0,
+            "first_position_original_index": 924,
+            "position_definition": "lat/lon present after rule filters and outlier removal"
+          },
+          "event_kind_counts": {
+            "position": 7782,
+            "velocity": 7001
+          },
+          "position_xy_message_count": 7782,
+          "full_position_message_count": 7491,
+          "horizontal_velocity_message_count": 7001,
+          "vertical_velocity_message_count": 7001,
+          "full_velocity_message_count": 7001
+        }
+      },
+      "duration_s": 15.169939299987163,
+      "finished_utc": "2026-05-09T16:38:17.536205+00:00"
+    },
+    {
+      "name": "03_choose_origin_and_project_to_local_frame",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:17.538215+00:00",
+      "details": {
+        "keyframe_count": 4170
+      },
+      "output": {
+        "origin": {
+          "lat": 56.120258913201795,
+          "lon": 23.794841766357422
+        },
+        "local_keyframe_count": 4170
+      },
+      "duration_s": 0.16332389999297448,
+      "finished_utc": "2026-05-09T16:38:17.701511+00:00"
+    },
+    {
+      "name": "04_write_raw_payload",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:17.701511+00:00",
+      "details": {
+        "keyframe_count": 4170
+      },
+      "duration_s": 2.4091518000059295,
+      "finished_utc": "2026-05-09T16:38:20.110940+00:00"
+    },
+    {
+      "name": "05_prepare_paired_vspline_samples",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:20.110940+00:00",
+      "details": {
+        "raw_keyframe_count": 4170
+      },
+      "output": {
+        "paired_sample_count": 3728,
+        "prepared_segment_count": 1,
+        "adapter_diagnostics": {
+          "adapter": "RawKeyframeVSplineAdapter",
+          "dimension": "3d",
+          "dim_names": [
+            "x",
+            "y",
+            "z"
+          ],
+          "uses_acceleration_observations": false,
+          "sort_policy": "sort_by_t_then_verify_unique",
+          "deduplication_policy": "none_raise_on_duplicate_t",
+          "extraction": {
+            "raw_keyframe_count": 4170,
+            "paired_sample_count": 3728,
+            "skipped_counts": {
+              "not_dict": 0,
+              "unpaired_flag": 442,
+              "missing_full_position_flag": 0,
+              "missing_full_velocity_flag": 0,
+              "missing_position_object": 0,
+              "missing_velocity_object": 0,
+              "invalid_velocity_dimension": 0,
+              "invalid_velocity_frame": 0,
+              "vertical_component_unavailable": 0,
+              "nonfinite_numeric_field": 0
+            },
+            "invalid_preview": [],
+            "first_sample_t": 1766850172.0,
+            "last_sample_t": 1766854176.0
+          },
+          "position_motion_outlier_filter": {
+            "enabled": true,
+            "policy": "paired_position_motion_gate",
+            "absolute_speed_gate_mps": 1200.0,
+            "reported_speed_factor": 5.0,
+            "max_iterations": 4,
+            "input_sample_count": 3728,
+            "output_sample_count": 3728,
+            "removed_count": 0,
+            "removed_preview": [],
+            "iterations": [
+              {
+                "iteration": 1,
+                "sample_count": 3728,
+                "bad_edge_count": 0,
+                "max_step_speed_mps": 249.02467406493318
+              }
+            ]
+          },
+          "split": {
+            "max_gap_s": null,
+            "min_segment_observations": 2,
+            "candidate_segment_count": 1,
+            "usable_segment_count": 1,
+            "short_segments": [],
+            "segment_lengths": [
+              3728
+            ],
+            "segment_time_ranges": [
+              {
+                "segment_id": "seg_0001",
+                "t0": 1766850172.0,
+                "t1": 1766854176.0
+              }
+            ]
+          },
+          "config": {
+            "require_paired_flag": true,
+            "require_full_position_flag": true,
+            "require_full_velocity_flag": true,
+            "require_velocity_dimension_3d": true,
+            "require_vertical_component_available": true,
+            "require_local_enu_velocity_frame": true,
+            "allow_position_anchor_only": false,
+            "max_gap_s": null,
+            "min_segment_observations": 2,
+            "fail_on_short_segment": true,
+            "duplicate_time_tolerance_s": 0.0,
+            "fail_on_unpaired_keyframes": false,
+            "fail_on_invalid_paired_keyframe": true,
+            "enable_position_motion_outlier_filter": true,
+            "position_outlier_speed_gate_mps": 1200.0,
+            "position_outlier_speed_factor": 5.0,
+            "position_outlier_max_iterations": 4,
+            "position_outlier_min_samples_remaining": 8
+          }
+        }
+      },
+      "duration_s": 0.02856669999891892,
+      "finished_utc": "2026-05-09T16:38:20.140284+00:00"
+    },
+    {
+      "name": "06_dynamic_energy_segmentation",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:20.141284+00:00",
+      "details": {
+        "paired_sample_count": 3728
+      },
+      "output": {
+        "component_count": 1,
+        "segment_count": 48,
+        "boundary_count": 47
+      },
+      "duration_s": 7.232580399984727,
+      "finished_utc": "2026-05-09T16:38:27.373991+00:00"
+    },
+    {
+      "name": "07_estimate_shared_boundary_states",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:27.388202+00:00",
+      "details": {
+        "component_count": 1
+      },
+      "output": {
+        "component_count": 1,
+        "boundary_state_count": 47
+      },
+      "duration_s": 0.045217699982458726,
+      "finished_utc": "2026-05-09T16:38:27.433388+00:00"
+    },
+    {
+      "name": "08_fit_kalman_rts_methods",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:38:27.450249+00:00",
+      "details": {
+        "method_count": 3
+      },
+      "output": {
+        "method_count": 3,
+        "methods": [
+          "kalman_rts_balanced",
+          "kalman_rts_accurate",
+          "kalman_rts_smooth"
+        ],
+        "segmentation_applied": false
+      },
+      "duration_s": 35.39988340000855,
+      "finished_utc": "2026-05-09T16:39:02.850395+00:00"
+    },
+    {
+      "name": "09_fit_v_spline_methods",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:39:02.851394+00:00",
+      "details": {
+        "method_count": 21
+      },
+      "output": {
+        "method_count": 21,
+        "methods": [
+          "v_spline_bspline_balanced",
+          "v_spline_bspline_accurate",
+          "v_spline_bspline_smooth",
+          "v_spline_hermite_balanced",
+          "v_spline_hermite_accurate",
+          "v_spline_hermite_smooth",
+          "aviation_v_spline_bspline_global_balanced",
+          "aviation_v_spline_bspline_global_accurate",
+          "aviation_v_spline_bspline_global_smooth",
+          "v_spline_bspline_overlap_balanced",
+          "v_spline_bspline_overlap_accurate",
+          "v_spline_bspline_overlap_smooth",
+          "v_spline_bspline_join_smooth_balanced",
+          "v_spline_bspline_join_smooth_accurate",
+          "v_spline_bspline_join_smooth_smooth",
+          "v_spline_hermite_stable_balanced",
+          "v_spline_hermite_stable_accurate",
+          "v_spline_hermite_stable_smooth",
+          "aviation_v_spline_quintic_balanced",
+          "aviation_v_spline_quintic_accurate",
+          "aviation_v_spline_quintic_smooth"
+        ]
+      },
+      "duration_s": 428.73963970001205,
+      "finished_utc": "2026-05-09T16:46:11.590241+00:00"
+    },
+    {
+      "name": "10_fit_synthetic_gap_holdout_methods",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:46:11.591243+00:00",
+      "details": {
+        "method_count": 3
+      },
+      "output": {
+        "enabled": true,
+        "requested_base_methods": [
+          "kalman_rts_balanced",
+          "aviation_v_spline_quintic_balanced",
+          "v_spline_bspline_overlap_smooth"
+        ],
+        "method_count": 3,
+        "methods": [
+          "kalman_rts_balanced_synthetic_gap",
+          "aviation_v_spline_quintic_balanced_synthetic_gap",
+          "v_spline_bspline_overlap_smooth_synthetic_gap"
+        ],
+        "plan": {
+          "enabled": true,
+          "methodology": "deterministic_contiguous_raw_sample_deletion_then_refit_and_score_at_deleted_points",
+          "sample_count_before": 3728,
+          "training_sample_count": 3664,
+          "deleted_sample_count": 64,
+          "gap_count": 4,
+          "typical_dt_s": 1.0,
+          "requested_fraction": 0.05,
+          "requested_gap_count": 4,
+          "gap_points": 16,
+          "guard_points": 45,
+          "windows": [
+            {
+              "gap_id": "synthetic_gap_01",
+              "start_sample_index": 471,
+              "end_sample_index": 486,
+              "deleted_sample_count": 16,
+              "deleted_t0": 1766850643.0,
+              "deleted_t1": 1766850658.0,
+              "training_t_before": 1766850642.0,
+              "training_t_after": 1766850659.0,
+              "training_gap_s": 17.0,
+              "deleted_duration_s": 15.0
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "start_sample_index": 684,
+              "end_sample_index": 699,
+              "deleted_sample_count": 16,
+              "deleted_t0": 1766850856.0,
+              "deleted_t1": 1766850871.0,
+              "training_t_before": 1766850855.0,
+              "training_t_after": 1766850872.0,
+              "training_gap_s": 17.0,
+              "deleted_duration_s": 15.0
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "start_sample_index": 897,
+              "end_sample_index": 912,
+              "deleted_sample_count": 16,
+              "deleted_t0": 1766851093.0,
+              "deleted_t1": 1766851110.0,
+              "training_t_before": 1766851092.0,
+              "training_t_after": 1766851111.0,
+              "training_gap_s": 19.0,
+              "deleted_duration_s": 17.0
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "start_sample_index": 1110,
+              "end_sample_index": 1125,
+              "deleted_sample_count": 16,
+              "deleted_t0": 1766851321.0,
+              "deleted_t1": 1766851336.0,
+              "training_t_before": 1766851320.0,
+              "training_t_after": 1766851337.0,
+              "training_gap_s": 17.0,
+              "deleted_duration_s": 15.0
+            }
+          ],
+          "deleted_samples": [
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 471,
+              "raw_index": 471,
+              "keyframe_id": "kf_000472",
+              "t": 1766850643.0,
+              "position": {
+                "x_m": 7365.83686374229,
+                "y_m": 56298.76550302177,
+                "z_m": 1336.6496
+              },
+              "velocity": {
+                "east_mps": 13.831195253729906,
+                "north_mps": 100.91649870314043,
+                "up_mps": -6.1772800000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 472,
+              "raw_index": 472,
+              "keyframe_id": "kf_000473",
+              "t": 1766850644.0,
+              "position": {
+                "x_m": 7389.3351336258565,
+                "y_m": 56466.49409687609,
+                "z_m": 1330.2996
+              },
+              "velocity": {
+                "east_mps": 13.830563330382136,
+                "north_mps": 100.57040041380772,
+                "up_mps": -6.1772800000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 473,
+              "raw_index": 473,
+              "keyframe_id": "kf_000474",
+              "t": 1766850645.0,
+              "position": {
+                "x_m": 7402.512904117777,
+                "y_m": 56558.956986060424,
+                "z_m": 1326.4896
+              },
+              "velocity": {
+                "east_mps": 13.830247368708251,
+                "north_mps": 100.39735126914137,
+                "up_mps": -6.339840000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 474,
+              "raw_index": 474,
+              "keyframe_id": "kf_000475",
+              "t": 1766850646.0,
+              "position": {
+                "x_m": 7414.169975148881,
+                "y_m": 56646.14731852173,
+                "z_m": 1318.8696
+              },
+              "velocity": {
+                "east_mps": 13.830247368708251,
+                "north_mps": 100.39735126914137,
+                "up_mps": -6.502400000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 475,
+              "raw_index": 475,
+              "keyframe_id": "kf_000476",
+              "t": 1766850647.0,
+              "position": {
+                "x_m": 7432.991959169556,
+                "y_m": 56765.401837461104,
+                "z_m": 1311.2496
+              },
+              "velocity": {
+                "east_mps": 13.830247368708251,
+                "north_mps": 100.39735126914137,
+                "up_mps": -6.339840000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 476,
+              "raw_index": 476,
+              "keyframe_id": "kf_000477",
+              "t": 1766850648.0,
+              "position": {
+                "x_m": 7444.8049780479305,
+                "y_m": 56859.806297791205,
+                "z_m": 1303.6296
+              },
+              "velocity": {
+                "east_mps": 13.830247368708251,
+                "north_mps": 100.39735126914137,
+                "up_mps": -6.339840000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 477,
+              "raw_index": 477,
+              "keyframe_id": "kf_000478",
+              "t": 1766850649.0,
+              "position": {
+                "x_m": 7458.807365080405,
+                "y_m": 56964.97050334908,
+                "z_m": 1299.8196
+              },
+              "velocity": {
+                "east_mps": 13.829604676769863,
+                "north_mps": 100.05122201579108,
+                "up_mps": -6.827520000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 478,
+              "raw_index": 478,
+              "keyframe_id": "kf_000479",
+              "t": 1766850650.0,
+              "position": {
+                "x_m": 7474.4153393434135,
+                "y_m": 57074.58679973072,
+                "z_m": 1292.1996000000001
+              },
+              "velocity": {
+                "east_mps": 13.829283330800669,
+                "north_mps": 99.87815738911594,
+                "up_mps": -6.1772800000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 479,
+              "raw_index": 479,
+              "keyframe_id": "kf_000480",
+              "t": 1766850651.0,
+              "position": {
+                "x_m": 7487.072786212628,
+                "y_m": 57170.850310034366,
+                "z_m": 1284.5796
+              },
+              "velocity": {
+                "east_mps": 13.829283330800669,
+                "north_mps": 99.87815738911594,
+                "up_mps": -6.0147200000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 480,
+              "raw_index": 480,
+              "keyframe_id": "kf_000481",
+              "t": 1766850652.0,
+              "position": {
+                "x_m": 7500.321781386894,
+                "y_m": 57268.54038213898,
+                "z_m": 1280.7696
+              },
+              "velocity": {
+                "east_mps": 13.829283330800669,
+                "north_mps": 99.87815738911594,
+                "up_mps": -5.6896
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 481,
+              "raw_index": 481,
+              "keyframe_id": "kf_000482",
+              "t": 1766850653.0,
+              "position": {
+                "x_m": 7513.451739543416,
+                "y_m": 57384.97744120011,
+                "z_m": 1273.1496
+              },
+              "velocity": {
+                "east_mps": 13.828793063147387,
+                "north_mps": 99.61853688577753,
+                "up_mps": -5.8521600000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 482,
+              "raw_index": 482,
+              "keyframe_id": "kf_000483",
+              "t": 1766850654.0,
+              "position": {
+                "x_m": 7529.6186909690205,
+                "y_m": 57465.35110571587,
+                "z_m": 1269.3396
+              },
+              "velocity": {
+                "east_mps": 13.828302795494107,
+                "north_mps": 99.35891638243913,
+                "up_mps": -5.8521600000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 483,
+              "raw_index": 483,
+              "keyframe_id": "kf_000484",
+              "t": 1766850655.0,
+              "position": {
+                "x_m": 7539.899765478696,
+                "y_m": 57559.01878271313,
+                "z_m": 1261.7196000000001
+              },
+              "velocity": {
+                "east_mps": 13.828302795494107,
+                "north_mps": 99.35891638243913,
+                "up_mps": -6.0147200000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 484,
+              "raw_index": 484,
+              "keyframe_id": "kf_000485",
+              "t": 1766850656.0,
+              "position": {
+                "x_m": 7555.775022126916,
+                "y_m": 57659.262287592006,
+                "z_m": 1254.0996
+              },
+              "velocity": {
+                "east_mps": 13.827804102395957,
+                "north_mps": 99.09927196889507,
+                "up_mps": -6.1772800000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 485,
+              "raw_index": 485,
+              "keyframe_id": "kf_000486",
+              "t": 1766850657.0,
+              "position": {
+                "x_m": 7564.49201290911,
+                "y_m": 57724.59052158568,
+                "z_m": 1250.2896
+              },
+              "velocity": {
+                "east_mps": 13.827305409297807,
+                "north_mps": 98.839627555351,
+                "up_mps": -6.1772800000000005
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_01",
+              "sample_index": 486,
+              "raw_index": 486,
+              "keyframe_id": "kf_000487",
+              "t": 1766850658.0,
+              "position": {
+                "x_m": 7583.5975448450245,
+                "y_m": 57869.93675066352,
+                "z_m": 1242.6696000000002
+              },
+              "velocity": {
+                "east_mps": 13.827305409297807,
+                "north_mps": 98.839627555351,
+                "up_mps": -6.339840000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 684,
+              "raw_index": 684,
+              "keyframe_id": "kf_000685",
+              "t": 1766850856.0,
+              "position": {
+                "x_m": 9355.556973293522,
+                "y_m": 73662.38865220692,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 6.143680042080141,
+                "north_mps": 62.46074709448143,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 685,
+              "raw_index": 685,
+              "keyframe_id": "kf_000686",
+              "t": 1766850857.0,
+              "position": {
+                "x_m": 9365.022559983412,
+                "y_m": 73743.48880329863,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 6.143191565625143,
+                "north_mps": 61.94384828672019,
+                "up_mps": -0.48768
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 686,
+              "raw_index": 686,
+              "keyframe_id": "kf_000687",
+              "t": 1766850858.0,
+              "position": {
+                "x_m": 9371.485381059194,
+                "y_m": 73804.97125683505,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 6.143191565625143,
+                "north_mps": 61.94384828672019,
+                "up_mps": -0.65024
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 687,
+              "raw_index": 687,
+              "keyframe_id": "kf_000688",
+              "t": 1766850859.0,
+              "position": {
+                "x_m": 9376.813955871332,
+                "y_m": 73843.85961948398,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 6.142690947364652,
+                "north_mps": 61.42690947364652,
+                "up_mps": -0.8128
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 688,
+              "raw_index": 688,
+              "keyframe_id": "kf_000689",
+              "t": 1766850860.0,
+              "position": {
+                "x_m": 9382.090147403998,
+                "y_m": 73906.07378450797,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 5.635257619233837,
+                "north_mps": 61.47553766436913,
+                "up_mps": -0.97536
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 689,
+              "raw_index": 689,
+              "keyframe_id": "kf_000690",
+              "t": 1766850861.0,
+              "position": {
+                "x_m": 9385.522825220161,
+                "y_m": 73960.16297990181,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 5.635257619233837,
+                "north_mps": 61.47553766436913,
+                "up_mps": -1.13792
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 690,
+              "raw_index": 690,
+              "keyframe_id": "kf_000691",
+              "t": 1766850862.0,
+              "position": {
+                "x_m": 9390.59180218648,
+                "y_m": 74039.17998793462,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 5.126371526084981,
+                "north_mps": 61.00382116041126,
+                "up_mps": -1.30048
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 691,
+              "raw_index": 691,
+              "keyframe_id": "kf_000692",
+              "t": 1766850863.0,
+              "position": {
+                "x_m": 9396.79439863854,
+                "y_m": 74103.12407563589,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": 4.616810898397512,
+                "north_mps": 61.04449965658932,
+                "up_mps": -1.30048
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 692,
+              "raw_index": 692,
+              "keyframe_id": "kf_000693",
+              "t": 1766850864.0,
+              "position": {
+                "x_m": 9399.278899628343,
+                "y_m": 74164.81368586814,
+                "z_m": 766.4196000000001
+              },
+              "velocity": {
+                "east_mps": 4.616810898397512,
+                "north_mps": 61.04449965658932,
+                "up_mps": -1.13792
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 693,
+              "raw_index": 693,
+              "keyframe_id": "kf_000694",
+              "t": 1766850865.0,
+              "position": {
+                "x_m": 9403.041903601657,
+                "y_m": 74222.31612165314,
+                "z_m": 762.6096
+              },
+              "velocity": {
+                "east_mps": 4.616810898397512,
+                "north_mps": 61.04449965658932,
+                "up_mps": -0.97536
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 694,
+              "raw_index": 694,
+              "keyframe_id": "kf_000695",
+              "t": 1766850866.0,
+              "position": {
+                "x_m": 9408.311371421227,
+                "y_m": 74287.12206545303,
+                "z_m": 762.6096
+              },
+              "velocity": {
+                "east_mps": 4.10628337932445,
+                "north_mps": 61.080965267451205,
+                "up_mps": -1.30048
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 695,
+              "raw_index": 695,
+              "keyframe_id": "kf_000696",
+              "t": 1766850867.0,
+              "position": {
+                "x_m": 9411.770311011183,
+                "y_m": 74354.31415999937,
+                "z_m": 762.6096
+              },
+              "velocity": {
+                "east_mps": 4.616810898397512,
+                "north_mps": 61.04449965658932,
+                "up_mps": -1.6256000000000002
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 696,
+              "raw_index": 696,
+              "keyframe_id": "kf_000697",
+              "t": 1766850868.0,
+              "position": {
+                "x_m": 9418.855633984336,
+                "y_m": 74414.14221346787,
+                "z_m": 762.6096
+              },
+              "velocity": {
+                "east_mps": 4.6170288159863135,
+                "north_mps": 61.56038421315085,
+                "up_mps": -1.78816
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 697,
+              "raw_index": 697,
+              "keyframe_id": "kf_000698",
+              "t": 1766850869.0,
+              "position": {
+                "x_m": 9422.325504719935,
+                "y_m": 74476.35238530909,
+                "z_m": 760.0696
+              },
+              "velocity": {
+                "east_mps": 4.6170288159863135,
+                "north_mps": 61.56038421315085,
+                "up_mps": -2.11328
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 698,
+              "raw_index": 698,
+              "keyframe_id": "kf_000699",
+              "t": 1766850870.0,
+              "position": {
+                "x_m": 9426.680205087156,
+                "y_m": 74546.3398387462,
+                "z_m": 754.9896
+              },
+              "velocity": {
+                "east_mps": 5.12666986054529,
+                "north_mps": 61.520038326543464,
+                "up_mps": -2.4384
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_02",
+              "sample_index": 699,
+              "raw_index": 699,
+              "keyframe_id": "kf_000700",
+              "t": 1766850871.0,
+              "position": {
+                "x_m": 9433.885498945909,
+                "y_m": 74615.25376717537,
+                "z_m": 754.9896
+              },
+              "velocity": {
+                "east_mps": 5.12666986054529,
+                "north_mps": 61.520038326543464,
+                "up_mps": -2.27584
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 897,
+              "raw_index": 917,
+              "keyframe_id": "kf_000918",
+              "t": 1766851093.0,
+              "position": {
+                "x_m": 10851.146171597444,
+                "y_m": 89297.74249133063,
+                "z_m": 754.9896
+              },
+              "velocity": {
+                "east_mps": 14.362973862290339,
+                "north_mps": 81.04820965149548,
+                "up_mps": 0.65024
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 898,
+              "raw_index": 918,
+              "keyframe_id": "kf_000919",
+              "t": 1766851094.0,
+              "position": {
+                "x_m": 10868.869898402663,
+                "y_m": 89398.00254589849,
+                "z_m": 762.6096
+              },
+              "velocity": {
+                "east_mps": 14.362973862290339,
+                "north_mps": 81.04820965149548,
+                "up_mps": 0.0
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 899,
+              "raw_index": 919,
+              "keyframe_id": "kf_000920",
+              "t": 1766851095.0,
+              "position": {
+                "x_m": 10880.932578442884,
+                "y_m": 89459.80375032626,
+                "z_m": 758.7996
+              },
+              "velocity": {
+                "east_mps": 14.611236228376512,
+                "north_mps": 81.00342858307712,
+                "up_mps": -0.65024
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 900,
+              "raw_index": 920,
+              "keyframe_id": "kf_000921",
+              "t": 1766851096.0,
+              "position": {
+                "x_m": 10898.751462115899,
+                "y_m": 89555.37022577149,
+                "z_m": 754.9896
+              },
+              "velocity": {
+                "east_mps": 14.860432943984542,
+                "north_mps": 81.21996857918313,
+                "up_mps": -1.4630400000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 901,
+              "raw_index": 921,
+              "keyframe_id": "kf_000922",
+              "t": 1766851097.0,
+              "position": {
+                "x_m": 10915.645369777387,
+                "y_m": 89660.45184215992,
+                "z_m": 754.9896
+              },
+              "velocity": {
+                "east_mps": 14.862281234257019,
+                "north_mps": 81.74256254601275,
+                "up_mps": -2.11328
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 902,
+              "raw_index": 922,
+              "keyframe_id": "kf_000923",
+              "t": 1766851098.0,
+              "position": {
+                "x_m": 10932.710319658276,
+                "y_m": 89742.87057469398,
+                "z_m": 754.9896
+              },
+              "velocity": {
+                "east_mps": 15.1119206205185,
+                "north_mps": 82.21965133467111,
+                "up_mps": -2.11328
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 903,
+              "raw_index": 923,
+              "keyframe_id": "kf_000924",
+              "t": 1766851099.0,
+              "position": {
+                "x_m": 10946.000251284237,
+                "y_m": 89818.06584200272,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 15.361650676963292,
+                "north_mps": 82.69690288783461,
+                "up_mps": -1.4630400000000001
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 904,
+              "raw_index": 924,
+              "keyframe_id": "kf_000925",
+              "t": 1766851100.0,
+              "position": {
+                "x_m": 10961.98710763827,
+                "y_m": 89893.26818264587,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 15.61091600786774,
+                "north_mps": 83.17345648115534,
+                "up_mps": -0.48768
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 905,
+              "raw_index": 925,
+              "keyframe_id": "kf_000926",
+              "t": 1766851101.0,
+              "position": {
+                "x_m": 10980.602376945695,
+                "y_m": 89994.39491845816,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 15.860273730537514,
+                "north_mps": 83.65017107884623,
+                "up_mps": -0.16256
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 906,
+              "raw_index": 926,
+              "keyframe_id": "kf_000927",
+              "t": 1766851102.0,
+              "position": {
+                "x_m": 10991.254902483597,
+                "y_m": 90046.25770624791,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.255834472408285,
+                "north_mps": 84.18523258515525,
+                "up_mps": -0.10837333333333334
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 907,
+              "raw_index": 927,
+              "keyframe_id": "kf_000928",
+              "t": 1766851103.0,
+              "position": {
+                "x_m": 11001.866058012976,
+                "y_m": 90113.67089192767,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.45492196694445,
+                "north_mps": 84.84569139205733,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 908,
+              "raw_index": 929,
+              "keyframe_id": "kf_000930",
+              "t": 1766851105.0,
+              "position": {
+                "x_m": 11039.146689483685,
+                "y_m": 90295.19093028935,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.95174214225617,
+                "north_mps": 85.27239986710677,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 909,
+              "raw_index": 930,
+              "keyframe_id": "kf_000931",
+              "t": 1766851106.0,
+              "position": {
+                "x_m": 11059.137631034388,
+                "y_m": 90405.85347384738,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.95276537182704,
+                "north_mps": 85.5344226067875,
+                "up_mps": -0.16256
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 910,
+              "raw_index": 931,
+              "keyframe_id": "kf_000932",
+              "t": 1766851107.0,
+              "position": {
+                "x_m": 11078.022285918989,
+                "y_m": 90509.54427165654,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.7070132559803,
+                "north_mps": 86.10634718846116,
+                "up_mps": 0.16256
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 911,
+              "raw_index": 932,
+              "keyframe_id": "kf_000933",
+              "t": 1766851108.0,
+              "position": {
+                "x_m": 11088.310257897978,
+                "y_m": 90570.73661596575,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.7089923140175,
+                "north_mps": 86.63023353420917,
+                "up_mps": 0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_03",
+              "sample_index": 912,
+              "raw_index": 934,
+              "keyframe_id": "kf_000935",
+              "t": 1766851110.0,
+              "position": {
+                "x_m": 11126.148284974053,
+                "y_m": 90750.93418398578,
+                "z_m": 747.3696
+              },
+              "velocity": {
+                "east_mps": 16.958703667677078,
+                "north_mps": 87.1060833377687,
+                "up_mps": 0.97536
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1110,
+              "raw_index": 1144,
+              "keyframe_id": "kf_001145",
+              "t": 1766851321.0,
+              "position": {
+                "x_m": 7498.206911994763,
+                "y_m": 102684.73606259248,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.28433081133541,
+                "north_mps": -79.19866840591034,
+                "up_mps": -0.48768
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1111,
+              "raw_index": 1145,
+              "keyframe_id": "kf_001146",
+              "t": 1766851322.0,
+              "position": {
+                "x_m": 7419.427750350082,
+                "y_m": 102612.11425929239,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.53044639798496,
+                "north_mps": -78.94216611981177,
+                "up_mps": -0.16256
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1112,
+              "raw_index": 1146,
+              "keyframe_id": "kf_001147",
+              "t": 1766851323.0,
+              "position": {
+                "x_m": 7351.811844404416,
+                "y_m": 102545.73362038989,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.78685780018449,
+                "north_mps": -78.673225114461,
+                "up_mps": 0.16256
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1113,
+              "raw_index": 1147,
+              "keyframe_id": "kf_001148",
+              "t": 1766851324.0,
+              "position": {
+                "x_m": 7257.758477273655,
+                "y_m": 102458.14253973316,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.72838295775429,
+                "north_mps": -78.3609170091847,
+                "up_mps": 0.65024
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1114,
+              "raw_index": 1148,
+              "keyframe_id": "kf_001149",
+              "t": 1766851325.0,
+              "position": {
+                "x_m": 7175.873675228351,
+                "y_m": 102378.34953054509,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.97788815844223,
+                "north_mps": -78.09668706503189,
+                "up_mps": 0.65024
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1115,
+              "raw_index": 1149,
+              "keyframe_id": "kf_001150",
+              "t": 1766851326.0,
+              "position": {
+                "x_m": 7107.661152317942,
+                "y_m": 102312.31736866871,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -83.28586820156036,
+                "north_mps": -78.14476522615537,
+                "up_mps": 0.97536
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1116,
+              "raw_index": 1150,
+              "keyframe_id": "kf_001151",
+              "t": 1766851327.0,
+              "position": {
+                "x_m": 7016.363174632876,
+                "y_m": 102229.2286802974,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -83.28586820156036,
+                "north_mps": -78.14476522615537,
+                "up_mps": 1.13792
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1117,
+              "raw_index": 1151,
+              "keyframe_id": "kf_001152",
+              "t": 1766851328.0,
+              "position": {
+                "x_m": 6907.023458416792,
+                "y_m": 102127.01991547742,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -83.28586820156036,
+                "north_mps": -78.14476522615537,
+                "up_mps": 0.8128
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1118,
+              "raw_index": 1152,
+              "keyframe_id": "kf_001153",
+              "t": 1766851329.0,
+              "position": {
+                "x_m": 6833.769041641048,
+                "y_m": 102055.28213241378,
+                "z_m": 774.0396000000001
+              },
+              "velocity": {
+                "east_mps": -82.95319460064312,
+                "north_mps": -78.49707181835913,
+                "up_mps": 0.10837333333333334
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1119,
+              "raw_index": 1153,
+              "keyframe_id": "kf_001154",
+              "t": 1766851330.0,
+              "position": {
+                "x_m": 6745.146319169551,
+                "y_m": 101974.14749849921,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.78685780018449,
+                "north_mps": -78.673225114461,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1120,
+              "raw_index": 1154,
+              "keyframe_id": "kf_001155",
+              "t": 1766851331.0,
+              "position": {
+                "x_m": 6694.126894985926,
+                "y_m": 101922.87934512724,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.78685780018449,
+                "north_mps": -78.673225114461,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1121,
+              "raw_index": 1155,
+              "keyframe_id": "kf_001156",
+              "t": 1766851332.0,
+              "position": {
+                "x_m": 6592.239653625649,
+                "y_m": 101828.33625425286,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.47834898125927,
+                "north_mps": -78.62406738484646,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1122,
+              "raw_index": 1156,
+              "keyframe_id": "kf_001157",
+              "t": 1766851333.0,
+              "position": {
+                "x_m": 6500.758983659267,
+                "y_m": 101741.15495849139,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.16984016233404,
+                "north_mps": -78.57490965523189,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1123,
+              "raw_index": 1157,
+              "keyframe_id": "kf_001158",
+              "t": 1766851334.0,
+              "position": {
+                "x_m": 6420.528862810184,
+                "y_m": 101659.8674317635,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.16984016233404,
+                "north_mps": -78.57490965523189,
+                "up_mps": -0.32512
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1124,
+              "raw_index": 1158,
+              "keyframe_id": "kf_001159",
+              "t": 1766851335.0,
+              "position": {
+                "x_m": 6355.735816071028,
+                "y_m": 101595.79652526909,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -82.22708548683472,
+                "north_mps": -78.88678903057112,
+                "up_mps": -0.16256
+              }
+            },
+            {
+              "gap_id": "synthetic_gap_04",
+              "sample_index": 1125,
+              "raw_index": 1159,
+              "keyframe_id": "kf_001160",
+              "t": 1766851336.0,
+              "position": {
+                "x_m": 6253.501578836389,
+                "y_m": 101497.93510356985,
+                "z_m": 770.2296
+              },
+              "velocity": {
+                "east_mps": -81.97530410034582,
+                "north_mps": -79.14841193239185,
+                "up_mps": 0.0
+              }
+            }
+          ],
+          "deleted_keyframe_ids": [
+            "kf_000472",
+            "kf_000473",
+            "kf_000474",
+            "kf_000475",
+            "kf_000476",
+            "kf_000477",
+            "kf_000478",
+            "kf_000479",
+            "kf_000480",
+            "kf_000481",
+            "kf_000482",
+            "kf_000483",
+            "kf_000484",
+            "kf_000485",
+            "kf_000486",
+            "kf_000487",
+            "kf_000685",
+            "kf_000686",
+            "kf_000687",
+            "kf_000688",
+            "kf_000689",
+            "kf_000690",
+            "kf_000691",
+            "kf_000692",
+            "kf_000693",
+            "kf_000694",
+            "kf_000695",
+            "kf_000696",
+            "kf_000697",
+            "kf_000698",
+            "kf_000699",
+            "kf_000700",
+            "kf_000918",
+            "kf_000919",
+            "kf_000920",
+            "kf_000921",
+            "kf_000922",
+            "kf_000923",
+            "kf_000924",
+            "kf_000925",
+            "kf_000926",
+            "kf_000927",
+            "kf_000928",
+            "kf_000930",
+            "kf_000931",
+            "kf_000932",
+            "kf_000933",
+            "kf_000935",
+            "kf_001145",
+            "kf_001146",
+            "kf_001147",
+            "kf_001148",
+            "kf_001149",
+            "kf_001150",
+            "kf_001151",
+            "kf_001152",
+            "kf_001153",
+            "kf_001154",
+            "kf_001155",
+            "kf_001156",
+            "kf_001157",
+            "kf_001158",
+            "kf_001159",
+            "kf_001160"
+          ]
+        },
+        "note": "diagnostic methods are excluded from the normal leaderboard and ranked by deleted-point error by evaluate_reconstructions.py"
+      },
+      "duration_s": 64.69559389998903,
+      "finished_utc": "2026-05-09T16:47:16.286324+00:00"
+    },
+    {
+      "name": "11_write_academic_debug_pack",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:47:16.286324+00:00",
+      "details": {
+        "method_count": 27
+      },
+      "duration_s": 0.2440980999963358,
+      "finished_utc": "2026-05-09T16:47:16.530560+00:00"
+    },
+    {
+      "name": "12_write_flight_manifest",
+      "status": "ok",
+      "started_utc": "2026-05-09T16:47:16.531559+00:00",
+      "details": {},
+      "duration_s": 0.003961600014008582,
+      "finished_utc": "2026-05-09T16:47:16.534837+00:00"
+    }
+  ],
+  "artifacts": [
+    {
+      "type": "json",
+      "file": "flight_rule.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\flight_rule.json"
+    },
+    {
+      "type": "json",
+      "file": "config_snapshot.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\config_snapshot.json"
+    },
+    {
+      "type": "json",
+      "file": "raw_loader_report.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\raw_loader_report.json"
+    },
+    {
+      "type": "json",
+      "file": "normalization_report.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\normalization_report.json"
+    },
+    {
+      "type": "json",
+      "file": "prepared_samples_report.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\prepared_samples_report.json"
+    },
+    {
+      "type": "json",
+      "file": "segmentation.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\segmentation.json"
+    },
+    {
+      "type": "json",
+      "file": "boundary_states.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\boundary_states.json"
+    },
+    {
+      "type": "json",
+      "file": "synthetic_gap_holdout.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\synthetic_gap_holdout.json"
+    },
+    {
+      "type": "json",
+      "file": "reconstruction_quality.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\reconstruction_quality.json"
+    },
+    {
+      "type": "csv",
+      "file": "segment_metrics.csv",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\segment_metrics.csv",
+      "row_count": 967
+    },
+    {
+      "type": "csv",
+      "file": "join_metrics.csv",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\join_metrics.csv",
+      "row_count": 940
+    },
+    {
+      "type": "csv",
+      "file": "trajectory_model_metrics.csv",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\trajectory_model_metrics.csv",
+      "row_count": 994
+    },
+    {
+      "type": "json",
+      "file": "flight_summary.json",
+      "path": "C:\\Users\\micke\\V_Spline_module\\track_output\\flights\\4BAAD9\\debug\\flight_summary.json"
+    }
+  ]
+}
