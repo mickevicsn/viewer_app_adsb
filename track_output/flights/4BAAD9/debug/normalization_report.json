@@ -1,0 +1,192 @@
+{
+  "normalizer_config": {
+    "columns": {
+      "time_column": "ts_utc",
+      "icao_column": "icao",
+      "lat_column": "lat",
+      "lon_column": "lon",
+      "altitude_ft_column": "alt",
+      "ground_speed_kt_column": "gs",
+      "track_column": "track",
+      "crc_ok_column": "crc_ok",
+      "raw_id_column": "raw_id",
+      "row_id_column": null,
+      "decoded_json_column": "decoded_json",
+      "event_kind_column": "event_kind",
+      "vertical_rate_fpm_column": "vertical_rate_fpm",
+      "vertical_rate_mps_column": "vertical_rate_mps",
+      "seen_utc_column": "seen_utc"
+    },
+    "apply_rule_filters": true,
+    "keep_unpaired_timestamps": true,
+    "parse_vertical_rate_from_decoded_json": true,
+    "keyframe_time_quantization_s": 1.0,
+    "track_unit": "deg",
+    "baro_z_reference": "field",
+    "clip_height_to_zero_for_display": false,
+    "derive_velocity_delta_acceleration": true,
+    "acceleration_max_dt_s": null
+  },
+  "normalizer_report": {
+    "raw_row_count": 66892,
+    "filtered_row_count": 17062,
+    "valid_time_row_count": 14783,
+    "event_count": 14783,
+    "keyframe_count": 4170,
+    "output_timestamp_count": 4170,
+    "paired_timestamp_count": 3728,
+    "on_ground_window": {
+      "enabled": true,
+      "start_unix": 1766854173.0,
+      "end_unix": 1766854455.0,
+      "altitude_override": "field_elevation",
+      "field_elevation_ft_msl": 273.0,
+      "field_elevation_m_msl": 83.2104,
+      "affected_keyframe_count": 199
+    },
+    "rule_applied": {
+      "track_id": "4BAAD9",
+      "icao": "4BAAD9",
+      "time_window": {
+        "first_point_unix": 1766843350.0,
+        "last_point_unix": 1766854455.0
+      },
+      "field_elevation": {
+        "method": "fixed_ft_msl",
+        "value": 273.0,
+        "source": "manual",
+        "notes": null,
+        "elevation_ft_msl": 273.0,
+        "elevation_m_msl": 83.2104
+      },
+      "on_ground_window": {
+        "start_unix": 1766854173.0,
+        "end_unix": 1766854455.0
+      },
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km",
+        "distance_km": 90.0
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR",
+        "multiplier": 3.0
+      },
+      "origin_lat_deg": null,
+      "origin_lon_deg": null,
+      "require_crc_ok": true,
+      "allowed_events": [
+        "velocity",
+        "position"
+      ],
+      "raw_time_column": "ts_utc",
+      "raw_icao_column": "icao",
+      "raw_crc_ok_column": "crc_ok",
+      "raw_event_kind_column": "event_kind",
+      "keyframe_time_quantization_s": 1.0,
+      "notes": {}
+    },
+    "normalizer_config": {
+      "columns": {
+        "time_column": "ts_utc",
+        "icao_column": "icao",
+        "lat_column": "lat",
+        "lon_column": "lon",
+        "altitude_ft_column": "alt",
+        "ground_speed_kt_column": "gs",
+        "track_column": "track",
+        "crc_ok_column": "crc_ok",
+        "raw_id_column": "raw_id",
+        "row_id_column": null,
+        "decoded_json_column": "decoded_json",
+        "event_kind_column": "event_kind",
+        "vertical_rate_fpm_column": "vertical_rate_fpm",
+        "vertical_rate_mps_column": "vertical_rate_mps",
+        "seen_utc_column": "seen_utc"
+      },
+      "apply_rule_filters": true,
+      "keep_unpaired_timestamps": true,
+      "parse_vertical_rate_from_decoded_json": true,
+      "keyframe_time_quantization_s": 1.0,
+      "track_unit": "deg",
+      "baro_z_reference": "field",
+      "clip_height_to_zero_for_display": false,
+      "derive_velocity_delta_acceleration": true,
+      "acceleration_max_dt_s": null
+    },
+    "vertical_rate_source": "vertical_rate_mps",
+    "keyframe_time_quantization_s": 1.0,
+    "allowed_events": [
+      "velocity",
+      "position"
+    ],
+    "pre_outlier_row_count": 17062,
+    "post_outlier_row_count": 15707,
+    "pre_start_trim_row_count": 15707,
+    "post_start_trim_row_count": 14783,
+    "outlier_removal": {
+      "enabled": true,
+      "input_rows": 17062,
+      "output_rows": 15707,
+      "removed_rows": 1355,
+      "boundary_rix": {
+        "value": 90.0,
+        "unit": "Km",
+        "distance_km": 90.0
+      },
+      "outlier_multiplier": {
+        "value": 3.0,
+        "unit": "IQR",
+        "multiplier": 3.0
+      },
+      "thresholds": {
+        "distance_from_rix_km": 90.0,
+        "pos_speed_kmh": 852.7266785759161,
+        "vel_accel_mps2": 2.064818953029831
+      },
+      "distance_from_rix": {
+        "count": 919,
+        "denominator": 8701,
+        "fraction": 0.10562004367314101
+      },
+      "pos_speed": {
+        "count": 18,
+        "denominator": 8701,
+        "fraction": 0.0020687277324445467
+      },
+      "vel_accel": {
+        "count": 436,
+        "denominator": 8361,
+        "fraction": 0.05214687238368616
+      },
+      "any": {
+        "count": 1355,
+        "denominator": 17062,
+        "fraction": 0.07941624662993788
+      }
+    },
+    "start_trim": {
+      "enabled": true,
+      "rule": "drop_rows_before_first_post_filter_position",
+      "input_rows": 15707,
+      "output_rows": 14783,
+      "removed_rows": 924,
+      "first_position_time_s": 1766850172.0,
+      "first_position_keyframe_t": 1766850172.0,
+      "first_position_original_index": 924,
+      "position_definition": "lat/lon present after rule filters and outlier removal"
+    },
+    "event_kind_counts": {
+      "position": 7782,
+      "velocity": 7001
+    },
+    "position_xy_message_count": 7782,
+    "full_position_message_count": 7491,
+    "horizontal_velocity_message_count": 7001,
+    "vertical_velocity_message_count": 7001,
+    "full_velocity_message_count": 7001
+  },
+  "event_count": 14783,
+  "keyframe_count": 4170
+}

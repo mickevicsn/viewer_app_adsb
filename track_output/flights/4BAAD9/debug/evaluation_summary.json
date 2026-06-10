@@ -1,0 +1,779 @@
+{
+  "core_metrics": [
+    {
+      "accel_p95_mps2": 4.316563922161289,
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "jerk_p95_mps3": 0.3967325322738391,
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_balanced",
+      "overall_score_lower_is_better": 0.12556132689583419,
+      "position_3d_p95_m": 35.133905590262536,
+      "position_velocity_step_closure_p95_m": 0.0005168893458240765,
+      "preset": "balanced",
+      "same_time_position_jump_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0,
+      "segment_join_velocity_jump_p95_mps": 0.0,
+      "velocity_3d_p95_mps": 7.50746664692872,
+      "velocity_derivative_closure_p95_mps": 0.004137071930619775
+    },
+    {
+      "accel_p95_mps2": 4.472166342388675,
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "jerk_p95_mps3": 0.8122524783839293,
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_accurate",
+      "overall_score_lower_is_better": 0.1343578128780215,
+      "position_3d_p95_m": 33.629499777741486,
+      "position_velocity_step_closure_p95_m": 0.0010663535218303868,
+      "preset": "accurate",
+      "same_time_position_jump_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0,
+      "segment_join_velocity_jump_p95_mps": 0.0,
+      "velocity_3d_p95_mps": 7.554099440824674,
+      "velocity_derivative_closure_p95_mps": 0.008514128699854379
+    },
+    {
+      "accel_p95_mps2": 4.176969194752052,
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "jerk_p95_mps3": 0.23498997404074173,
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_smooth",
+      "overall_score_lower_is_better": 0.1270025140486742,
+      "position_3d_p95_m": 40.16204042450913,
+      "position_velocity_step_closure_p95_m": 0.00030626229032877373,
+      "preset": "smooth",
+      "same_time_position_jump_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0,
+      "segment_join_velocity_jump_p95_mps": 0.0,
+      "velocity_3d_p95_mps": 7.722029532046895,
+      "velocity_derivative_closure_p95_mps": 0.002449048756434824
+    },
+    {
+      "accel_p95_mps2": 4.131767071100199,
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "jerk_p95_mps3": 0.24398825132997054,
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_balanced",
+      "overall_score_lower_is_better": 0.15571726455201054,
+      "position_3d_p95_m": 58.55135495960747,
+      "position_velocity_step_closure_p95_m": 0.00030791918670679475,
+      "preset": "balanced",
+      "same_time_position_jump_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.00029384519122434933,
+      "segment_join_velocity_jump_p95_mps": 0.9770946921436194,
+      "velocity_3d_p95_mps": 8.718467952000909,
+      "velocity_derivative_closure_p95_mps": 0.002502407894376052
+    },
+    {
+      "accel_p95_mps2": 4.190223757707265,
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "jerk_p95_mps3": 0.318546383365332,
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_accurate",
+      "overall_score_lower_is_better": 0.14236105361129697,
+      "position_3d_p95_m": 47.198188724073304,
+      "position_velocity_step_closure_p95_m": 0.00040414054030389287,
+      "preset": "accurate",
+      "same_time_position_jump_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0004868506750719295,
+      "segment_join_velocity_jump_p95_mps": 0.8828667060182099,
+      "velocity_3d_p95_mps": 8.320897612351152,
+      "velocity_derivative_closure_p95_mps": 0.0032837547469662244
+    },
+    {
+      "accel_p95_mps2": 4.031358300768238,
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "jerk_p95_mps3": 0.2184917199035541,
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_smooth",
+      "overall_score_lower_is_better": 0.21473362710586893,
+      "position_3d_p95_m": 102.81195989375031,
+      "position_velocity_step_closure_p95_m": 0.00027726301838829125,
+      "preset": "smooth",
+      "same_time_position_jump_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.00039163579478953154,
+      "segment_join_velocity_jump_p95_mps": 1.0911454414214934,
+      "velocity_3d_p95_mps": 10.344017061358523,
+      "velocity_derivative_closure_p95_mps": 0.0022501216645137065
+    }
+  ],
+  "flight_id": "4BAAD9",
+  "group_scores": {
+    "bea_v_spline_accurate": {
+      "continuity": {
+        "components": {
+          "join_position": 4.868506750719295e-05,
+          "join_velocity": 0.088286670601821,
+          "same_time_position": 0.0,
+          "same_time_velocity": 0.0
+        },
+        "score": 0.022093575930833487
+      },
+      "evidence_fit": {
+        "components": {
+          "position": 0.22198188724073303,
+          "velocity": 0.27005610077194697
+        },
+        "score": 0.24121157265321863
+      },
+      "gap_behavior": {
+        "components": {
+          "gap_accel": 0.0,
+          "gap_jerk": 0.0
+        },
+        "score": 0.0
+      },
+      "kinematic_consistency": {
+        "components": {
+          "step_closure": 1.6165621612155716e-05,
+          "velocity_closure": 0.0006567509493932449
+        },
+        "score": 0.0003684875518917548
+      },
+      "motion_smoothness": {
+        "components": {
+          "accel": 0.5237779697134082,
+          "jerk": 0.0398182979206665
+        },
+        "score": 0.30599611740667443
+      }
+    },
+    "bea_v_spline_balanced": {
+      "continuity": {
+        "components": {
+          "join_position": 2.9384519122434935e-05,
+          "join_velocity": 0.09770946921436194,
+          "same_time_position": 0.0,
+          "same_time_velocity": 0.0
+        },
+        "score": 0.024440590337195582
+      },
+      "evidence_fit": {
+        "components": {
+          "position": 0.3355135495960747,
+          "velocity": 0.2949042470000568
+        },
+        "score": 0.3192698285576675
+      },
+      "gap_behavior": {
+        "components": {
+          "gap_accel": 0.0,
+          "gap_jerk": 0.0
+        },
+        "score": 0.0
+      },
+      "kinematic_consistency": {
+        "components": {
+          "step_closure": 1.231676746827179e-05,
+          "velocity_closure": 0.0005004815788752103
+        },
+        "score": 0.00028080741374208806
+      },
+      "motion_smoothness": {
+        "components": {
+          "accel": 0.5164708838875248,
+          "jerk": 0.030498531416246318
+        },
+        "score": 0.29778332527544954
+      }
+    },
+    "bea_v_spline_smooth": {
+      "continuity": {
+        "components": {
+          "join_position": 3.9163579478953155e-05,
+          "join_velocity": 0.10911454414214934,
+          "same_time_position": 0.0,
+          "same_time_velocity": 0.0
+        },
+        "score": 0.02729625964630287
+      },
+      "evidence_fit": {
+        "components": {
+          "position": 0.7781195989375032,
+          "velocity": 0.39650106633490767
+        },
+        "score": 0.6254721858964649
+      },
+      "gap_behavior": {
+        "components": {
+          "gap_accel": 0.0,
+          "gap_jerk": 0.0
+        },
+        "score": 0.0
+      },
+      "kinematic_consistency": {
+        "components": {
+          "step_closure": 1.109052073553165e-05,
+          "velocity_closure": 0.00045002433290274133
+        },
+        "score": 0.000252504117427497
+      },
+      "motion_smoothness": {
+        "components": {
+          "accel": 0.5039197875960297,
+          "jerk": 0.02731146498794426
+        },
+        "score": 0.2894460424223913
+      }
+    },
+    "kalman_rts_accurate": {
+      "continuity": {
+        "components": {
+          "join_position": 0.0,
+          "join_velocity": 0.0,
+          "same_time_position": 0.0,
+          "same_time_velocity": 0.0
+        },
+        "score": 0.0
+      },
+      "evidence_fit": {
+        "components": {
+          "position": 0.08629499777741487,
+          "velocity": 0.22213121505154215
+        },
+        "score": 0.1406294846870658
+      },
+      "gap_behavior": {
+        "components": {
+          "gap_accel": 0.0,
+          "gap_jerk": 0.0
+        },
+        "score": 0.0
+      },
+      "kinematic_consistency": {
+        "components": {
+          "step_closure": 4.265414087321547e-05,
+          "velocity_closure": 0.0017028257399708756
+        },
+        "score": 0.0009557485203769286
+      },
+      "motion_smoothness": {
+        "components": {
+          "accel": 0.5590207927985844,
+          "jerk": 0.10153155979799117
+        },
+        "score": 0.35315063794831747
+      }
+    },
+    "kalman_rts_balanced": {
+      "continuity": {
+        "components": {
+          "join_position": 0.0,
+          "join_velocity": 0.0,
+          "same_time_position": 0.0,
+          "same_time_velocity": 0.0
+        },
+        "score": 0.0
+      },
+      "evidence_fit": {
+        "components": {
+          "position": 0.10133905590262536,
+          "velocity": 0.21921666543304502
+        },
+        "score": 0.14849009971479324
+      },
+      "gap_behavior": {
+        "components": {
+          "gap_accel": 0.0,
+          "gap_jerk": 0.0
+        },
+        "score": 0.0
+      },
+      "kinematic_consistency": {
+        "components": {
+          "step_closure": 2.067557383296306e-05,
+          "velocity_closure": 0.0008274143861239549
+        },
+        "score": 0.0004643819205930086
+      },
+      "motion_smoothness": {
+        "components": {
+          "accel": 0.5395704902701611,
+          "jerk": 0.049591566534229886
+        },
+        "score": 0.31907997458899207
+      }
+    },
+    "kalman_rts_smooth": {
+      "continuity": {
+        "components": {
+          "join_position": 0.0,
+          "join_velocity": 0.0,
+          "same_time_position": 0.0,
+          "same_time_velocity": 0.0
+        },
+        "score": 0.0
+      },
+      "evidence_fit": {
+        "components": {
+          "position": 0.1516204042450913,
+          "velocity": 0.2326268457529309
+        },
+        "score": 0.18402298084822716
+      },
+      "gap_behavior": {
+        "components": {
+          "gap_accel": 0.0,
+          "gap_jerk": 0.0
+        },
+        "score": 0.0
+      },
+      "kinematic_consistency": {
+        "components": {
+          "step_closure": 1.225049161315095e-05,
+          "velocity_closure": 0.0004898097512869648
+        },
+        "score": 0.0002749080844337486
+      },
+      "motion_smoothness": {
+        "components": {
+          "accel": 0.5221211493440066,
+          "jerk": 0.029373746755092717
+        },
+        "score": 0.30038481817899537
+      }
+    }
+  },
+  "icao": "4BAAD9",
+  "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+  "metrics_by_method": {
+    "bea_v_spline_accurate": {
+      "accel_p95_mps2": 4.190223757707265,
+      "detailed_file": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_accurate.json",
+      "duration_s": 4004.0,
+      "evidence_mode": "paired",
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "gap_render_sample_count": 0,
+      "group_continuity_score": 0.022093575930833487,
+      "group_evidence_fit_score": 0.24121157265321863,
+      "group_gap_behavior_score": 0.0,
+      "group_kinematic_consistency_score": 0.0003684875518917548,
+      "group_motion_smoothness_score": 0.30599611740667443,
+      "horizontal_position_p95_m": 47.13740350823926,
+      "horizontal_velocity_p95_mps": 8.319370127944707,
+      "jerk_p95_mps3": 0.318546383365332,
+      "label": "BEA-V-Spline (accurate)",
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_accurate",
+      "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+      "overall_score_lower_is_better": 0.14236105361129697,
+      "paired_evidence_count": 3728,
+      "position_3d_excess_p95_m": 22.198188724073304,
+      "position_3d_p95_m": 47.198188724073304,
+      "position_3d_rmse_m": 24.962068014395935,
+      "position_evidence_count": 3728,
+      "position_noise_floor_m": 25.0,
+      "position_overlap_count": 3728,
+      "position_velocity_step_closure_p95_m": 0.00040414054030389287,
+      "position_velocity_step_closure_rmse_m": 0.00018832911993790387,
+      "preset": "accurate",
+      "quality_backend": "bea_v_spline",
+      "quality_fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+      "quality_preset": "accurate",
+      "quality_segment_count": 48,
+      "raw_long_gap_count": 1,
+      "raw_sample_count": 4170,
+      "render_dt_median_s": 0.25,
+      "render_dt_p95_s": 0.25,
+      "render_duplicate_time_count": 0,
+      "render_sample_count": 16017,
+      "render_unique_time_count": 16017,
+      "same_time_jump_count": 0,
+      "same_time_position_jump_max_m": 0.0,
+      "same_time_velocity_jump_max_mps": 0.0,
+      "segment_join_count": 47,
+      "segment_join_hard_gap_skipped_count": 0,
+      "segment_join_ordinary_count": 47,
+      "segment_join_position_closure_max_m": 0.0006189808950994058,
+      "segment_join_position_closure_p95_m": 0.0004868506750719295,
+      "segment_join_velocity_jump_max_mps": 1.288838680622136,
+      "segment_join_velocity_jump_p95_mps": 0.8828667060182099,
+      "velocity_3d_excess_p95_mps": 4.3208976123511516,
+      "velocity_3d_p95_mps": 8.320897612351152,
+      "velocity_3d_rmse_mps": 3.739851246389885,
+      "velocity_derivative_closure_p95_mps": 0.0032837547469662244,
+      "velocity_derivative_closure_rmse_mps": 0.0028754780593178353,
+      "velocity_evidence_count": 3728,
+      "velocity_noise_floor_mps": 4.0,
+      "velocity_overlap_count": 3728,
+      "vertical_position_p95_m": 4.8557951329530615
+    },
+    "bea_v_spline_balanced": {
+      "accel_p95_mps2": 4.131767071100199,
+      "detailed_file": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_balanced.json",
+      "duration_s": 4004.0,
+      "evidence_mode": "paired",
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "gap_render_sample_count": 0,
+      "group_continuity_score": 0.024440590337195582,
+      "group_evidence_fit_score": 0.3192698285576675,
+      "group_gap_behavior_score": 0.0,
+      "group_kinematic_consistency_score": 0.00028080741374208806,
+      "group_motion_smoothness_score": 0.29778332527544954,
+      "horizontal_position_p95_m": 58.53678478609827,
+      "horizontal_velocity_p95_mps": 8.70459830679183,
+      "jerk_p95_mps3": 0.24398825132997054,
+      "label": "BEA-V-Spline (balanced)",
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_balanced",
+      "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+      "overall_score_lower_is_better": 0.15571726455201054,
+      "paired_evidence_count": 3728,
+      "position_3d_excess_p95_m": 33.55135495960747,
+      "position_3d_p95_m": 58.55135495960747,
+      "position_3d_rmse_m": 30.662900249168857,
+      "position_evidence_count": 3728,
+      "position_noise_floor_m": 25.0,
+      "position_overlap_count": 3728,
+      "position_velocity_step_closure_p95_m": 0.00030791918670679475,
+      "position_velocity_step_closure_rmse_m": 0.00014107403263191256,
+      "preset": "balanced",
+      "quality_backend": "bea_v_spline",
+      "quality_fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+      "quality_preset": "balanced",
+      "quality_segment_count": 48,
+      "raw_long_gap_count": 1,
+      "raw_sample_count": 4170,
+      "render_dt_median_s": 0.25,
+      "render_dt_p95_s": 0.25,
+      "render_duplicate_time_count": 0,
+      "render_sample_count": 16017,
+      "render_unique_time_count": 16017,
+      "same_time_jump_count": 0,
+      "same_time_position_jump_max_m": 0.0,
+      "same_time_velocity_jump_max_mps": 0.0,
+      "segment_join_count": 47,
+      "segment_join_hard_gap_skipped_count": 0,
+      "segment_join_ordinary_count": 47,
+      "segment_join_position_closure_max_m": 0.0005798581346709516,
+      "segment_join_position_closure_p95_m": 0.00029384519122434933,
+      "segment_join_velocity_jump_max_mps": 1.2740130266902896,
+      "segment_join_velocity_jump_p95_mps": 0.9770946921436194,
+      "velocity_3d_excess_p95_mps": 4.718467952000909,
+      "velocity_3d_p95_mps": 8.718467952000909,
+      "velocity_3d_rmse_mps": 3.956258279181146,
+      "velocity_derivative_closure_p95_mps": 0.002502407894376052,
+      "velocity_derivative_closure_rmse_mps": 0.0025908051797507085,
+      "velocity_evidence_count": 3728,
+      "velocity_noise_floor_mps": 4.0,
+      "velocity_overlap_count": 3728,
+      "vertical_position_p95_m": 5.197514159664794
+    },
+    "bea_v_spline_smooth": {
+      "accel_p95_mps2": 4.031358300768238,
+      "detailed_file": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_smooth.json",
+      "duration_s": 4004.0,
+      "evidence_mode": "paired",
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "gap_render_sample_count": 0,
+      "group_continuity_score": 0.02729625964630287,
+      "group_evidence_fit_score": 0.6254721858964649,
+      "group_gap_behavior_score": 0.0,
+      "group_kinematic_consistency_score": 0.000252504117427497,
+      "group_motion_smoothness_score": 0.2894460424223913,
+      "horizontal_position_p95_m": 102.77319068805394,
+      "horizontal_velocity_p95_mps": 10.285245079310924,
+      "jerk_p95_mps3": 0.2184917199035541,
+      "label": "BEA-V-Spline (smooth)",
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_smooth",
+      "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+      "overall_score_lower_is_better": 0.21473362710586893,
+      "paired_evidence_count": 3728,
+      "position_3d_excess_p95_m": 77.81195989375031,
+      "position_3d_p95_m": 102.81195989375031,
+      "position_3d_rmse_m": 49.28002102176137,
+      "position_evidence_count": 3728,
+      "position_noise_floor_m": 25.0,
+      "position_overlap_count": 3728,
+      "position_velocity_step_closure_p95_m": 0.00027726301838829125,
+      "position_velocity_step_closure_rmse_m": 0.00012811625323308758,
+      "preset": "smooth",
+      "quality_backend": "bea_v_spline",
+      "quality_fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+      "quality_preset": "smooth",
+      "quality_segment_count": 48,
+      "raw_long_gap_count": 1,
+      "raw_sample_count": 4170,
+      "render_dt_median_s": 0.25,
+      "render_dt_p95_s": 0.25,
+      "render_duplicate_time_count": 0,
+      "render_sample_count": 16017,
+      "render_unique_time_count": 16017,
+      "same_time_jump_count": 0,
+      "same_time_position_jump_max_m": 0.0,
+      "same_time_velocity_jump_max_mps": 0.0,
+      "segment_join_count": 47,
+      "segment_join_hard_gap_skipped_count": 0,
+      "segment_join_ordinary_count": 47,
+      "segment_join_position_closure_max_m": 0.0007260971004147888,
+      "segment_join_position_closure_p95_m": 0.00039163579478953154,
+      "segment_join_velocity_jump_max_mps": 1.1876838828435234,
+      "segment_join_velocity_jump_p95_mps": 1.0911454414214934,
+      "velocity_3d_excess_p95_mps": 6.344017061358523,
+      "velocity_3d_p95_mps": 10.344017061358523,
+      "velocity_3d_rmse_mps": 4.733963756665715,
+      "velocity_derivative_closure_p95_mps": 0.0022501216645137065,
+      "velocity_derivative_closure_rmse_mps": 0.003228210614701277,
+      "velocity_evidence_count": 3728,
+      "velocity_noise_floor_mps": 4.0,
+      "velocity_overlap_count": 3728,
+      "vertical_position_p95_m": 6.1221677085120945
+    },
+    "kalman_rts_accurate": {
+      "accel_p95_mps2": 4.472166342388675,
+      "detailed_file": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\kalman_rts_accurate.json",
+      "duration_s": 4004.0,
+      "evidence_mode": "paired",
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "gap_render_sample_count": 0,
+      "group_continuity_score": 0.0,
+      "group_evidence_fit_score": 0.1406294846870658,
+      "group_gap_behavior_score": 0.0,
+      "group_kinematic_consistency_score": 0.0009557485203769286,
+      "group_motion_smoothness_score": 0.35315063794831747,
+      "horizontal_position_p95_m": 33.62601546212617,
+      "horizontal_velocity_p95_mps": 7.552898139670072,
+      "jerk_p95_mps3": 0.8122524783839293,
+      "label": "Kalman-RTS (accurate)",
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_accurate",
+      "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+      "overall_score_lower_is_better": 0.1343578128780215,
+      "paired_evidence_count": 3728,
+      "position_3d_excess_p95_m": 8.629499777741486,
+      "position_3d_p95_m": 33.629499777741486,
+      "position_3d_rmse_m": 16.96701661691082,
+      "position_evidence_count": 3728,
+      "position_noise_floor_m": 25.0,
+      "position_overlap_count": 3728,
+      "position_velocity_step_closure_p95_m": 0.0010663535218303868,
+      "position_velocity_step_closure_rmse_m": 0.0005562764833995855,
+      "preset": "accurate",
+      "quality_backend": "kalman_rts",
+      "quality_fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+      "quality_preset": "accurate",
+      "quality_segment_count": 0,
+      "raw_long_gap_count": 1,
+      "raw_sample_count": 4170,
+      "render_dt_median_s": 0.25,
+      "render_dt_p95_s": 0.25,
+      "render_duplicate_time_count": 0,
+      "render_sample_count": 16017,
+      "render_unique_time_count": 16017,
+      "same_time_jump_count": 0,
+      "same_time_position_jump_max_m": 0.0,
+      "same_time_velocity_jump_max_mps": 0.0,
+      "segment_join_count": 0,
+      "segment_join_hard_gap_skipped_count": 0,
+      "segment_join_ordinary_count": 0,
+      "segment_join_position_closure_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0,
+      "segment_join_velocity_jump_max_mps": 0.0,
+      "segment_join_velocity_jump_p95_mps": 0.0,
+      "velocity_3d_excess_p95_mps": 3.5540994408246744,
+      "velocity_3d_p95_mps": 7.554099440824674,
+      "velocity_3d_rmse_mps": 3.4610072478896936,
+      "velocity_derivative_closure_p95_mps": 0.008514128699854379,
+      "velocity_derivative_closure_rmse_mps": 0.004497235991412887,
+      "velocity_evidence_count": 3728,
+      "velocity_noise_floor_mps": 4.0,
+      "velocity_overlap_count": 3728,
+      "vertical_position_p95_m": 3.6487794277062653
+    },
+    "kalman_rts_balanced": {
+      "accel_p95_mps2": 4.316563922161289,
+      "detailed_file": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\kalman_rts_balanced.json",
+      "duration_s": 4004.0,
+      "evidence_mode": "paired",
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "gap_render_sample_count": 0,
+      "group_continuity_score": 0.0,
+      "group_evidence_fit_score": 0.14849009971479324,
+      "group_gap_behavior_score": 0.0,
+      "group_kinematic_consistency_score": 0.0004643819205930086,
+      "group_motion_smoothness_score": 0.31907997458899207,
+      "horizontal_position_p95_m": 35.13151413572675,
+      "horizontal_velocity_p95_mps": 7.503118322623902,
+      "jerk_p95_mps3": 0.3967325322738391,
+      "label": "Kalman-RTS (balanced)",
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_balanced",
+      "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+      "overall_score_lower_is_better": 0.12556132689583419,
+      "paired_evidence_count": 3728,
+      "position_3d_excess_p95_m": 10.133905590262536,
+      "position_3d_p95_m": 35.133905590262536,
+      "position_3d_rmse_m": 17.6191036206644,
+      "position_evidence_count": 3728,
+      "position_noise_floor_m": 25.0,
+      "position_overlap_count": 3728,
+      "position_velocity_step_closure_p95_m": 0.0005168893458240765,
+      "position_velocity_step_closure_rmse_m": 0.00024961342691194816,
+      "preset": "balanced",
+      "quality_backend": "kalman_rts",
+      "quality_fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+      "quality_preset": "balanced",
+      "quality_segment_count": 0,
+      "raw_long_gap_count": 1,
+      "raw_sample_count": 4170,
+      "render_dt_median_s": 0.25,
+      "render_dt_p95_s": 0.25,
+      "render_duplicate_time_count": 0,
+      "render_sample_count": 16017,
+      "render_unique_time_count": 16017,
+      "same_time_jump_count": 0,
+      "same_time_position_jump_max_m": 0.0,
+      "same_time_velocity_jump_max_mps": 0.0,
+      "segment_join_count": 0,
+      "segment_join_hard_gap_skipped_count": 0,
+      "segment_join_ordinary_count": 0,
+      "segment_join_position_closure_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0,
+      "segment_join_velocity_jump_max_mps": 0.0,
+      "segment_join_velocity_jump_p95_mps": 0.0,
+      "velocity_3d_excess_p95_mps": 3.5074666469287203,
+      "velocity_3d_p95_mps": 7.50746664692872,
+      "velocity_3d_rmse_mps": 3.3549035538685787,
+      "velocity_derivative_closure_p95_mps": 0.004137071930619775,
+      "velocity_derivative_closure_rmse_mps": 0.002425840349282811,
+      "velocity_evidence_count": 3728,
+      "velocity_noise_floor_mps": 4.0,
+      "velocity_overlap_count": 3728,
+      "vertical_position_p95_m": 3.783959546161532
+    },
+    "kalman_rts_smooth": {
+      "accel_p95_mps2": 4.176969194752052,
+      "detailed_file": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\kalman_rts_smooth.json",
+      "duration_s": 4004.0,
+      "evidence_mode": "paired",
+      "gap_accel_p95_mps2": 0.0,
+      "gap_jerk_p95_mps3": 0.0,
+      "gap_render_sample_count": 0,
+      "group_continuity_score": 0.0,
+      "group_evidence_fit_score": 0.18402298084822716,
+      "group_gap_behavior_score": 0.0,
+      "group_kinematic_consistency_score": 0.0002749080844337486,
+      "group_motion_smoothness_score": 0.30038481817899537,
+      "horizontal_position_p95_m": 39.91854177209753,
+      "horizontal_velocity_p95_mps": 7.6632321308873,
+      "jerk_p95_mps3": 0.23498997404074173,
+      "label": "Kalman-RTS (smooth)",
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_smooth",
+      "metric_family": "fair_kalman_rts_vs_bea_v_spline_reduced_v2",
+      "overall_score_lower_is_better": 0.1270025140486742,
+      "paired_evidence_count": 3728,
+      "position_3d_excess_p95_m": 15.16204042450913,
+      "position_3d_p95_m": 40.16204042450913,
+      "position_3d_rmse_m": 20.283228399525903,
+      "position_evidence_count": 3728,
+      "position_noise_floor_m": 25.0,
+      "position_overlap_count": 3728,
+      "position_velocity_step_closure_p95_m": 0.00030626229032877373,
+      "position_velocity_step_closure_rmse_m": 0.00013459821771647003,
+      "preset": "smooth",
+      "quality_backend": "kalman_rts",
+      "quality_fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+      "quality_preset": "smooth",
+      "quality_segment_count": 0,
+      "raw_long_gap_count": 1,
+      "raw_sample_count": 4170,
+      "render_dt_median_s": 0.25,
+      "render_dt_p95_s": 0.25,
+      "render_duplicate_time_count": 0,
+      "render_sample_count": 16017,
+      "render_unique_time_count": 16017,
+      "same_time_jump_count": 0,
+      "same_time_position_jump_max_m": 0.0,
+      "same_time_velocity_jump_max_mps": 0.0,
+      "segment_join_count": 0,
+      "segment_join_hard_gap_skipped_count": 0,
+      "segment_join_ordinary_count": 0,
+      "segment_join_position_closure_max_m": 0.0,
+      "segment_join_position_closure_p95_m": 0.0,
+      "segment_join_velocity_jump_max_mps": 0.0,
+      "segment_join_velocity_jump_p95_mps": 0.0,
+      "velocity_3d_excess_p95_mps": 3.7220295320468946,
+      "velocity_3d_p95_mps": 7.722029532046895,
+      "velocity_3d_rmse_mps": 3.41763020640325,
+      "velocity_derivative_closure_p95_mps": 0.002449048756434824,
+      "velocity_derivative_closure_rmse_mps": 0.001338978441077518,
+      "velocity_evidence_count": 3728,
+      "velocity_noise_floor_mps": 4.0,
+      "velocity_overlap_count": 3728,
+      "vertical_position_p95_m": 6.188243769906123
+    }
+  },
+  "options": {
+    "evidence_mode": "paired",
+    "join_time_tolerance_s": 2.0,
+    "long_gap_threshold_s": 10.0,
+    "position_noise_floor_m": 25.0,
+    "velocity_noise_floor_mps": 4.0
+  },
+  "overall_scores_lower_is_better": {
+    "bea_v_spline_accurate": 0.14236105361129697,
+    "bea_v_spline_balanced": 0.15571726455201054,
+    "bea_v_spline_smooth": 0.21473362710586893,
+    "kalman_rts_accurate": 0.1343578128780215,
+    "kalman_rts_balanced": 0.12556132689583419,
+    "kalman_rts_smooth": 0.1270025140486742
+  },
+  "ranked_methods": [
+    {
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_balanced",
+      "overall_score_lower_is_better": 0.12556132689583419,
+      "preset": "balanced",
+      "rank": 1
+    },
+    {
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_smooth",
+      "overall_score_lower_is_better": 0.1270025140486742,
+      "preset": "smooth",
+      "rank": 2
+    },
+    {
+      "method_family": "kalman_rts",
+      "method_id": "kalman_rts_accurate",
+      "overall_score_lower_is_better": 0.1343578128780215,
+      "preset": "accurate",
+      "rank": 3
+    },
+    {
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_accurate",
+      "overall_score_lower_is_better": 0.14236105361129697,
+      "preset": "accurate",
+      "rank": 4
+    },
+    {
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_balanced",
+      "overall_score_lower_is_better": 0.15571726455201054,
+      "preset": "balanced",
+      "rank": 5
+    },
+    {
+      "method_family": "bea_v_spline",
+      "method_id": "bea_v_spline_smooth",
+      "overall_score_lower_is_better": 0.21473362710586893,
+      "preset": "smooth",
+      "rank": 6
+    }
+  ],
+  "scoring_note": "Fair reduced scoring: raw ADS-B is noisy evidence, not ground truth. Evidence fit uses noise floors; exact raw-point copying is not rewarded below the floor. Five groups are used: evidence_fit, kinematic_consistency, continuity, motion_smoothness, and gap_behavior. Lower is better."
+}

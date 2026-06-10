@@ -30,24 +30,34 @@ METHOD_PLACEHOLDERS: tuple[dict[str, str], ...] = (
         "description": "Reported ADS-B positions and GS+track-derived vectors.",
     },
     {
-        "methodId": "kalman_rts",
-        "label": "Kalman RTS",
-        "description": "RTS-smoothed reconstruction. Raw observations are shown as disconnected points; reconstructed trajectory is shown as a line.",
+        "methodId": "kalman_rts_balanced",
+        "label": "Kalman-RTS (balanced)",
+        "description": "RTS-smoothed reconstruction with balanced accuracy/smoothness settings.",
     },
     {
-        "methodId": "v_spline",
-        "label": "V-Spline",
-        "description": "Velocity-aware spline reconstruction. Raw observations are shown as disconnected points; V-Spline trajectory is shown as a line.",
+        "methodId": "kalman_rts_accurate",
+        "label": "Kalman-RTS (accurate)",
+        "description": "RTS-smoothed reconstruction tuned to stay closer to observations.",
     },
     {
-        "methodId": "b_spline",
-        "label": "B-spline",
-        "description": "B-spline reconstruction. Raw observations are shown as disconnected points; B-spline trajectory is shown as a line.",
+        "methodId": "kalman_rts_smooth",
+        "label": "Kalman-RTS (smooth)",
+        "description": "RTS-smoothed reconstruction tuned for smoother motion.",
     },
     {
-        "methodId": "hermite_spline",
-        "label": "Hermite spline",
-        "description": "Hermite-spline reconstruction. Raw observations are shown as disconnected points; Hermite spline trajectory is shown as a line.",
+        "methodId": "bea_v_spline_balanced",
+        "label": "BEA-V-Spline (balanced)",
+        "description": "Velocity-aware BEA V-Spline reconstruction with balanced settings.",
+    },
+    {
+        "methodId": "bea_v_spline_accurate",
+        "label": "BEA-V-Spline (accurate)",
+        "description": "Velocity-aware BEA V-Spline reconstruction tuned to stay closer to observations.",
+    },
+    {
+        "methodId": "bea_v_spline_smooth",
+        "label": "BEA-V-Spline (smooth)",
+        "description": "Velocity-aware BEA V-Spline reconstruction tuned for smoother motion.",
     },
 )
 
@@ -104,6 +114,8 @@ def _normalise_method(
     file_label = str(file_value) if file_value else f"methods/{method_id}.json"
     detailed_file_value = method.get("detailedFile") or method.get("detailFile") or method.get("debugFile")
     detailed_file_label = str(detailed_file_value) if detailed_file_value else ""
+    debug_directory_value = method.get("debugDirectory") or method.get("debugDir")
+    debug_directory_label = str(debug_directory_value) if debug_directory_value else ""
 
     candidates: list[Path] = []
     if file_value:
@@ -130,6 +142,7 @@ def _normalise_method(
         "description": description,
         "file": file_label,
         "detailedFile": detailed_file_label,
+        "debugDirectory": debug_directory_label,
         "available": resolved_path is not None,
         "placeholder": resolved_path is None,
         "status": status,
@@ -246,6 +259,14 @@ def _normalise_flight_record(
     if not isinstance(declared_methods, list):
         declared_methods = []
 
+    flight_debug_directory = entry.get("debugDirectory") or metadata.get("debugDirectory")
+    if flight_debug_directory:
+        declared_methods = [
+            {**method, "debugDirectory": method.get("debugDirectory") or flight_debug_directory}
+            if isinstance(method, dict) else method
+            for method in declared_methods
+        ]
+
     methods = _normalise_methods(root=root, flight_dir=flight_dir, declared_methods=declared_methods)
 
     requested_default = str(entry.get("defaultMethod") or metadata.get("defaultMethod") or "raw_adsb")
@@ -276,6 +297,7 @@ def _normalise_flight_record(
         "flightMetadataFile": entry.get("flightMetadataFile") or (
             _relative_to_root(root, flight_dir / "flight.json") if flight_dir else ""
         ),
+        "debugDirectory": str(entry.get("debugDirectory") or metadata.get("debugDirectory") or ""),
         "defaultMethod": default_method,
         "methods": methods,
         "sourceKind": "indexed",

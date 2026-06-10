@@ -1,0 +1,75 @@
+{
+  "manifest_entry": {
+    "flightId": "4BAAD9",
+    "icao": "4BAAD9",
+    "callsign": "THY6ES__",
+    "label": "4BAAD9 · 2025-12-27",
+    "startTimeUtc": "2025-12-27T15:42:52Z",
+    "endTimeUtc": "2025-12-27T16:54:15Z",
+    "origin": "",
+    "destination": "",
+    "flightMetadataFile": "flights/4BAAD9/flight.json",
+    "defaultMethod": "bea_v_spline_balanced",
+    "methods": [
+      {
+        "methodId": "raw_adsb",
+        "label": "Raw ADS-B",
+        "file": "flights/4BAAD9/methods/minimal/raw_adsb.json",
+        "detailedFile": "flights/4BAAD9/methods/raw_adsb.json"
+      },
+      {
+        "methodId": "kalman_rts_balanced",
+        "label": "Kalman-RTS (balanced)",
+        "file": "flights/4BAAD9/methods/minimal/kalman_rts_balanced.json",
+        "detailedFile": "flights/4BAAD9/methods/kalman_rts_balanced.json"
+      },
+      {
+        "methodId": "kalman_rts_accurate",
+        "label": "Kalman-RTS (accurate)",
+        "file": "flights/4BAAD9/methods/minimal/kalman_rts_accurate.json",
+        "detailedFile": "flights/4BAAD9/methods/kalman_rts_accurate.json"
+      },
+      {
+        "methodId": "kalman_rts_smooth",
+        "label": "Kalman-RTS (smooth)",
+        "file": "flights/4BAAD9/methods/minimal/kalman_rts_smooth.json",
+        "detailedFile": "flights/4BAAD9/methods/kalman_rts_smooth.json"
+      },
+      {
+        "methodId": "bea_v_spline_balanced",
+        "label": "BEA-V-Spline (balanced)",
+        "file": "flights/4BAAD9/methods/minimal/bea_v_spline_balanced.json",
+        "detailedFile": "flights/4BAAD9/methods/bea_v_spline_balanced.json"
+      },
+      {
+        "methodId": "bea_v_spline_accurate",
+        "label": "BEA-V-Spline (accurate)",
+        "file": "flights/4BAAD9/methods/minimal/bea_v_spline_accurate.json",
+        "detailedFile": "flights/4BAAD9/methods/bea_v_spline_accurate.json"
+      },
+      {
+        "methodId": "bea_v_spline_smooth",
+        "label": "BEA-V-Spline (smooth)",
+        "file": "flights/4BAAD9/methods/minimal/bea_v_spline_smooth.json",
+        "detailedFile": "flights/4BAAD9/methods/bea_v_spline_smooth.json"
+      }
+    ],
+    "debugDirectory": "flights/4BAAD9/debug"
+  },
+  "raw_adsb_path": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\raw_adsb.json",
+  "v_spline_paths": {
+    "bea_v_spline_balanced": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_balanced.json",
+    "bea_v_spline_accurate": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_accurate.json",
+    "bea_v_spline_smooth": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_smooth.json"
+  },
+  "reconstruction_paths": {
+    "kalman_rts_balanced": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\kalman_rts_balanced.json",
+    "kalman_rts_accurate": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\kalman_rts_accurate.json",
+    "kalman_rts_smooth": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\kalman_rts_smooth.json",
+    "bea_v_spline_balanced": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_balanced.json",
+    "bea_v_spline_accurate": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_accurate.json",
+    "bea_v_spline_smooth": "C:\\Users\\micke\\adaptive-spline-adsb\\track_output\\flights\\4BAAD9\\methods\\bea_v_spline_smooth.json"
+  },
+  "raw_keyframe_count": 4170,
+  "paired_sample_count": 3728
+}

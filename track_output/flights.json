@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "defaultMethod": "aviation_v_spline_quintic_balanced",
+  "defaultMethod": "bea_v_spline_balanced",
   "flights": [
     {
       "flightId": "4BAAD9",
@@ -12,7 +12,7 @@
       "origin": "",
       "destination": "",
       "flightMetadataFile": "flights/4BAAD9/flight.json",
-      "defaultMethod": "aviation_v_spline_quintic_balanced",
+      "defaultMethod": "bea_v_spline_balanced",
       "methods": [
         {
           "methodId": "raw_adsb",
@@ -27,22 +27,34 @@
           "detailedFile": "flights/4BAAD9/methods/kalman_rts_balanced.json"
         },
         {
-          "methodId": "v_spline_bspline_accurate",
-          "label": "B-Spline V-Spline (accurate)",
-          "file": "flights/4BAAD9/methods/minimal/v_spline_bspline_accurate.json",
-          "detailedFile": "flights/4BAAD9/methods/v_spline_bspline_accurate.json"
+          "methodId": "kalman_rts_accurate",
+          "label": "Kalman-RTS (accurate)",
+          "file": "flights/4BAAD9/methods/minimal/kalman_rts_accurate.json",
+          "detailedFile": "flights/4BAAD9/methods/kalman_rts_accurate.json"
         },
         {
-          "methodId": "v_spline_hermite_accurate",
-          "label": "Hermite V-Spline (accurate)",
-          "file": "flights/4BAAD9/methods/minimal/v_spline_hermite_accurate.json",
-          "detailedFile": "flights/4BAAD9/methods/v_spline_hermite_accurate.json"
+          "methodId": "kalman_rts_smooth",
+          "label": "Kalman-RTS (smooth)",
+          "file": "flights/4BAAD9/methods/minimal/kalman_rts_smooth.json",
+          "detailedFile": "flights/4BAAD9/methods/kalman_rts_smooth.json"
         },
         {
-          "methodId": "aviation_v_spline_quintic_balanced",
-          "label": "Aviation Quintic V-Spline (balanced)",
-          "file": "flights/4BAAD9/methods/minimal/aviation_v_spline_quintic_balanced.json",
-          "detailedFile": "flights/4BAAD9/methods/aviation_v_spline_quintic_balanced.json"
+          "methodId": "bea_v_spline_balanced",
+          "label": "BEA-V-Spline (balanced)",
+          "file": "flights/4BAAD9/methods/minimal/bea_v_spline_balanced.json",
+          "detailedFile": "flights/4BAAD9/methods/bea_v_spline_balanced.json"
+        },
+        {
+          "methodId": "bea_v_spline_accurate",
+          "label": "BEA-V-Spline (accurate)",
+          "file": "flights/4BAAD9/methods/minimal/bea_v_spline_accurate.json",
+          "detailedFile": "flights/4BAAD9/methods/bea_v_spline_accurate.json"
+        },
+        {
+          "methodId": "bea_v_spline_smooth",
+          "label": "BEA-V-Spline (smooth)",
+          "file": "flights/4BAAD9/methods/minimal/bea_v_spline_smooth.json",
+          "detailedFile": "flights/4BAAD9/methods/bea_v_spline_smooth.json"
         }
       ],
       "debugDirectory": "flights/4BAAD9/debug"

@@ -1,0 +1,779 @@
+{
+  "method_count": 6,
+  "methods": {
+    "kalman_rts_balanced": {
+      "basis": "none_state_space_constant_acceleration",
+      "objective": "linear_gaussian_position_velocity_measurements_with_white_jerk_process_model_and_rauch_tung_striebel_fixed_interval_smoothing",
+      "fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+      "paired_sample_count": 3728,
+      "render_keyframe_count": 16017,
+      "segment_count": 0,
+      "global_quality": {
+        "connected_component_count": 1,
+        "segment_count": 1,
+        "internal_boundary_count": 0,
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 0.0,
+        "max_internal_velocity_jump_mps": 0.0,
+        "max_internal_acceleration_jump_mps2": 0.0,
+        "acceleration_continuity_enforced": false,
+        "event_aware_continuity": {
+          "enabled": false,
+          "normal_join_count": 0,
+          "event_boundary_count": 0,
+          "normal_max_position_jump_m": 0.0,
+          "normal_max_velocity_jump_mps": 0.0,
+          "normal_max_acceleration_jump_mps2": 0.0,
+          "normal_max_jerk_jump_mps3": 0.0,
+          "by_event": {
+            "go_around": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "hard_gap": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "normal_segment_join": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            }
+          }
+        }
+      },
+      "trajectory_model_evaluation": {
+        "enabled": true,
+        "metric_family": "reference_free_trajectory_model_metrics_v1",
+        "truth_data_used": false,
+        "truth_data_note": "all metrics are computed from noisy ADS-B observations, fitted derivatives, render timing, and declared event boundaries; no true/reference trajectory is used",
+        "scientific_intent": "measure whether the output is a useful aircraft trajectory model for derivative analysis, wind-impact hypotheses, pilot/autopilot input signatures, and event-aware continuity",
+        "segment_count": 1,
+        "segment_weighted_score_0_100": 96.89731385786739,
+        "component_mean_scores_0_100": {
+          "observation_position_score": 100.0,
+          "velocity_evidence_score": 100.0,
+          "finite_difference_kinematics_score": 86.45406696350751,
+          "trajectory_smoothness_score": 100.0,
+          "physical_plausibility_score": 93.319022455044,
+          "dynamic_detail_preservation_score": 100.0,
+          "derivative_closure_score": 100.0
+        },
+        "by_regime": {
+          "airborne": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          },
+          "approach_final": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          },
+          "ground": {
+            "segment_count": 1,
+            "weighted_score_0_100": 96.89731385786739
+          }
+        },
+        "event_aware_join_score": {
+          "enabled": false,
+          "reason": "no_event_aware_join_report",
+          "score_0_100": 100.0,
+          "note": "single-segment or non-segmented method has no ordinary segment joins to score"
+        },
+        "hard_gap_honesty": {
+          "enabled": true,
+          "hard_gap_count": 0,
+          "hard_gap_threshold_s": 30.0,
+          "bridged_gap_count": 0,
+          "bridge_frame_count": 0,
+          "score_0_100": 100.0,
+          "note": "no hard surveillance gaps detected from raw timing"
+        },
+        "locality_scope": {
+          "score_0_100": 25.0,
+          "fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+          "reconstruction_backend": "kalman_rts",
+          "note": "local segmented models score higher for local wind/control analysis; whole-track smoothers remain valid baselines but are less local by design"
+        },
+        "method_component_scores_0_100": {
+          "segment_trajectory_score": 96.89731385786739,
+          "event_aware_join_score": 100.0,
+          "hard_gap_honesty_score": 100.0,
+          "locality_scope_score": 25.0
+        },
+        "method_score_weights": {
+          "segment_trajectory_score": 0.72,
+          "event_aware_join_score": 0.12,
+          "hard_gap_honesty_score": 0.1,
+          "locality_scope_score": 0.06
+        },
+        "weighted_score_0_100": 93.26606597766451,
+        "interpretation": "excellent_trajectory_model_for_reference_free_derivative_analysis"
+      },
+      "trajectory_model_weighted_score_0_100": 93.26606597766451,
+      "component_count": 1,
+      "continuity": {
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 0.0,
+        "max_internal_velocity_jump_mps": 0.0,
+        "max_internal_acceleration_jump_mps2": 0.0
+      },
+      "adaptive_resegmentation": [
+        {
+          "enabled": false,
+          "reason": "not_a_spline"
+        }
+      ]
+    },
+    "kalman_rts_accurate": {
+      "basis": "none_state_space_constant_acceleration",
+      "objective": "linear_gaussian_position_velocity_measurements_with_white_jerk_process_model_and_rauch_tung_striebel_fixed_interval_smoothing",
+      "fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+      "paired_sample_count": 3728,
+      "render_keyframe_count": 16017,
+      "segment_count": 0,
+      "global_quality": {
+        "connected_component_count": 1,
+        "segment_count": 1,
+        "internal_boundary_count": 0,
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 0.0,
+        "max_internal_velocity_jump_mps": 0.0,
+        "max_internal_acceleration_jump_mps2": 0.0,
+        "acceleration_continuity_enforced": false,
+        "event_aware_continuity": {
+          "enabled": false,
+          "normal_join_count": 0,
+          "event_boundary_count": 0,
+          "normal_max_position_jump_m": 0.0,
+          "normal_max_velocity_jump_mps": 0.0,
+          "normal_max_acceleration_jump_mps2": 0.0,
+          "normal_max_jerk_jump_mps3": 0.0,
+          "by_event": {
+            "go_around": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "hard_gap": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "normal_segment_join": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            }
+          }
+        }
+      },
+      "trajectory_model_evaluation": {
+        "enabled": true,
+        "metric_family": "reference_free_trajectory_model_metrics_v1",
+        "truth_data_used": false,
+        "truth_data_note": "all metrics are computed from noisy ADS-B observations, fitted derivatives, render timing, and declared event boundaries; no true/reference trajectory is used",
+        "scientific_intent": "measure whether the output is a useful aircraft trajectory model for derivative analysis, wind-impact hypotheses, pilot/autopilot input signatures, and event-aware continuity",
+        "segment_count": 1,
+        "segment_weighted_score_0_100": 96.7497262055427,
+        "component_mean_scores_0_100": {
+          "observation_position_score": 100.0,
+          "velocity_evidence_score": 100.0,
+          "finite_difference_kinematics_score": 86.64561600856075,
+          "trajectory_smoothness_score": 100.0,
+          "physical_plausibility_score": 92.04591174409268,
+          "dynamic_detail_preservation_score": 100.0,
+          "derivative_closure_score": 100.0
+        },
+        "by_regime": {
+          "airborne": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          },
+          "approach_final": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          },
+          "ground": {
+            "segment_count": 1,
+            "weighted_score_0_100": 96.7497262055427
+          }
+        },
+        "event_aware_join_score": {
+          "enabled": false,
+          "reason": "no_event_aware_join_report",
+          "score_0_100": 100.0,
+          "note": "single-segment or non-segmented method has no ordinary segment joins to score"
+        },
+        "hard_gap_honesty": {
+          "enabled": true,
+          "hard_gap_count": 0,
+          "hard_gap_threshold_s": 30.0,
+          "bridged_gap_count": 0,
+          "bridge_frame_count": 0,
+          "score_0_100": 100.0,
+          "note": "no hard surveillance gaps detected from raw timing"
+        },
+        "locality_scope": {
+          "score_0_100": 25.0,
+          "fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+          "reconstruction_backend": "kalman_rts",
+          "note": "local segmented models score higher for local wind/control analysis; whole-track smoothers remain valid baselines but are less local by design"
+        },
+        "method_component_scores_0_100": {
+          "segment_trajectory_score": 96.7497262055427,
+          "event_aware_join_score": 100.0,
+          "hard_gap_honesty_score": 100.0,
+          "locality_scope_score": 25.0
+        },
+        "method_score_weights": {
+          "segment_trajectory_score": 0.72,
+          "event_aware_join_score": 0.12,
+          "hard_gap_honesty_score": 0.1,
+          "locality_scope_score": 0.06
+        },
+        "weighted_score_0_100": 93.15980286799073,
+        "interpretation": "excellent_trajectory_model_for_reference_free_derivative_analysis"
+      },
+      "trajectory_model_weighted_score_0_100": 93.15980286799073,
+      "component_count": 1,
+      "continuity": {
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 0.0,
+        "max_internal_velocity_jump_mps": 0.0,
+        "max_internal_acceleration_jump_mps2": 0.0
+      },
+      "adaptive_resegmentation": [
+        {
+          "enabled": false,
+          "reason": "not_a_spline"
+        }
+      ]
+    },
+    "kalman_rts_smooth": {
+      "basis": "none_state_space_constant_acceleration",
+      "objective": "linear_gaussian_position_velocity_measurements_with_white_jerk_process_model_and_rauch_tung_striebel_fixed_interval_smoothing",
+      "fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+      "paired_sample_count": 3728,
+      "render_keyframe_count": 16017,
+      "segment_count": 0,
+      "global_quality": {
+        "connected_component_count": 1,
+        "segment_count": 1,
+        "internal_boundary_count": 0,
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 0.0,
+        "max_internal_velocity_jump_mps": 0.0,
+        "max_internal_acceleration_jump_mps2": 0.0,
+        "acceleration_continuity_enforced": false,
+        "event_aware_continuity": {
+          "enabled": false,
+          "normal_join_count": 0,
+          "event_boundary_count": 0,
+          "normal_max_position_jump_m": 0.0,
+          "normal_max_velocity_jump_mps": 0.0,
+          "normal_max_acceleration_jump_mps2": 0.0,
+          "normal_max_jerk_jump_mps3": 0.0,
+          "by_event": {
+            "go_around": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "hard_gap": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "normal_segment_join": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            }
+          }
+        }
+      },
+      "trajectory_model_evaluation": {
+        "enabled": true,
+        "metric_family": "reference_free_trajectory_model_metrics_v1",
+        "truth_data_used": false,
+        "truth_data_note": "all metrics are computed from noisy ADS-B observations, fitted derivatives, render timing, and declared event boundaries; no true/reference trajectory is used",
+        "scientific_intent": "measure whether the output is a useful aircraft trajectory model for derivative analysis, wind-impact hypotheses, pilot/autopilot input signatures, and event-aware continuity",
+        "segment_count": 1,
+        "segment_weighted_score_0_100": 97.03070389093145,
+        "component_mean_scores_0_100": {
+          "observation_position_score": 100.0,
+          "velocity_evidence_score": 100.0,
+          "finite_difference_kinematics_score": 86.28838332620546,
+          "trajectory_smoothness_score": 100.0,
+          "physical_plausibility_score": 94.46116113384684,
+          "dynamic_detail_preservation_score": 100.0,
+          "derivative_closure_score": 100.0
+        },
+        "by_regime": {
+          "airborne": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          },
+          "approach_final": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          },
+          "ground": {
+            "segment_count": 1,
+            "weighted_score_0_100": 97.03070389093145
+          }
+        },
+        "event_aware_join_score": {
+          "enabled": false,
+          "reason": "no_event_aware_join_report",
+          "score_0_100": 100.0,
+          "note": "single-segment or non-segmented method has no ordinary segment joins to score"
+        },
+        "hard_gap_honesty": {
+          "enabled": true,
+          "hard_gap_count": 0,
+          "hard_gap_threshold_s": 30.0,
+          "bridged_gap_count": 0,
+          "bridge_frame_count": 0,
+          "score_0_100": 100.0,
+          "note": "no hard surveillance gaps detected from raw timing"
+        },
+        "locality_scope": {
+          "score_0_100": 25.0,
+          "fit_mode": "whole_track_kalman_filter_plus_rts_smoother_no_segmentation",
+          "reconstruction_backend": "kalman_rts",
+          "note": "local segmented models score higher for local wind/control analysis; whole-track smoothers remain valid baselines but are less local by design"
+        },
+        "method_component_scores_0_100": {
+          "segment_trajectory_score": 97.03070389093145,
+          "event_aware_join_score": 100.0,
+          "hard_gap_honesty_score": 100.0,
+          "locality_scope_score": 25.0
+        },
+        "method_score_weights": {
+          "segment_trajectory_score": 0.72,
+          "event_aware_join_score": 0.12,
+          "hard_gap_honesty_score": 0.1,
+          "locality_scope_score": 0.06
+        },
+        "weighted_score_0_100": 93.36210680147065,
+        "interpretation": "excellent_trajectory_model_for_reference_free_derivative_analysis"
+      },
+      "trajectory_model_weighted_score_0_100": 93.36210680147065,
+      "component_count": 1,
+      "continuity": {
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 0.0,
+        "max_internal_velocity_jump_mps": 0.0,
+        "max_internal_acceleration_jump_mps2": 0.0
+      },
+      "adaptive_resegmentation": [
+        {
+          "enabled": false,
+          "reason": "not_a_spline"
+        }
+      ]
+    },
+    "bea_v_spline_balanced": {
+      "basis": "clamped_uniform_quintic_bea_v_spline_per_dynamic_segment",
+      "objective": "BEA-V-Spline position evidence plus velocity-derivative evidence plus continuous acceleration regularisation; interior ADS-B evidence is soft and ordinary dynamic-segment joins are hard C0/C1 stitching constraints",
+      "fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+      "paired_sample_count": 3728,
+      "render_keyframe_count": 16017,
+      "segment_count": 48,
+      "global_quality": {
+        "connected_component_count": 1,
+        "segment_count": 48,
+        "internal_boundary_count": 47,
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 4.3693624864188e-11,
+        "max_internal_velocity_jump_mps": 4.9738573951046616e-11,
+        "max_internal_acceleration_jump_mps2": 3.251994815022669,
+        "acceleration_continuity_enforced": false,
+        "event_aware_continuity": {
+          "enabled": true,
+          "normal_join_count": 46,
+          "event_boundary_count": 1,
+          "normal_max_position_jump_m": 4.3693624864188e-11,
+          "normal_max_velocity_jump_mps": 4.9738573951046616e-11,
+          "normal_max_acceleration_jump_mps2": 1.4708893207309808,
+          "normal_max_jerk_jump_mps3": 0.17379507042384804,
+          "by_event": {
+            "go_around": {
+              "count": 1,
+              "max_acceleration_jump_mps2": 3.251994815022669,
+              "max_jerk_jump_mps3": 0.48928442461505883
+            },
+            "hard_gap": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "normal_segment_join": {
+              "count": 46,
+              "max_acceleration_jump_mps2": 1.4708893207309808,
+              "max_jerk_jump_mps3": 0.17379507042384804
+            }
+          }
+        }
+      },
+      "trajectory_model_evaluation": {
+        "enabled": true,
+        "metric_family": "reference_free_trajectory_model_metrics_v1",
+        "truth_data_used": false,
+        "truth_data_note": "all metrics are computed from noisy ADS-B observations, fitted derivatives, render timing, and declared event boundaries; no true/reference trajectory is used",
+        "scientific_intent": "measure whether the output is a useful aircraft trajectory model for derivative analysis, wind-impact hypotheses, pilot/autopilot input signatures, and event-aware continuity",
+        "segment_count": 48,
+        "segment_weighted_score_0_100": 93.79117815285663,
+        "component_mean_scores_0_100": {
+          "observation_position_score": 96.6292917654663,
+          "velocity_evidence_score": 99.9922217716083,
+          "finite_difference_kinematics_score": 86.97473060195348,
+          "trajectory_smoothness_score": 100.0,
+          "physical_plausibility_score": 100.0,
+          "dynamic_detail_preservation_score": 62.81106325798603,
+          "derivative_closure_score": 100.0
+        },
+        "by_regime": {
+          "airborne": {
+            "segment_count": 35,
+            "weighted_score_0_100": 93.54930323218582
+          },
+          "approach_final": {
+            "segment_count": 13,
+            "weighted_score_0_100": 94.11105913843052
+          },
+          "ground": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          }
+        },
+        "event_aware_join_score": {
+          "enabled": true,
+          "normal_join_count": 46,
+          "event_boundary_count": 1,
+          "normal_max_acceleration_jump_mps2": 1.4708893207309808,
+          "normal_max_jerk_jump_mps3": 0.17379507042384804,
+          "score_0_100": 96.965379933067,
+          "note": "scores only normal segment joins; hard gaps, go-arounds, and true discontinuities are reported but not treated as continuity failures"
+        },
+        "hard_gap_honesty": {
+          "enabled": true,
+          "hard_gap_count": 0,
+          "hard_gap_threshold_s": 30.0,
+          "bridged_gap_count": 0,
+          "bridge_frame_count": 0,
+          "score_0_100": 100.0,
+          "note": "no hard surveillance gaps detected from raw timing"
+        },
+        "locality_scope": {
+          "score_0_100": 100.0,
+          "fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+          "reconstruction_backend": "bea_v_spline",
+          "note": "local segmented models score higher for local wind/control analysis; whole-track smoothers remain valid baselines but are less local by design"
+        },
+        "method_component_scores_0_100": {
+          "segment_trajectory_score": 93.79117815285663,
+          "event_aware_join_score": 96.965379933067,
+          "hard_gap_honesty_score": 100.0,
+          "locality_scope_score": 100.0
+        },
+        "method_score_weights": {
+          "segment_trajectory_score": 0.72,
+          "event_aware_join_score": 0.12,
+          "hard_gap_honesty_score": 0.1,
+          "locality_scope_score": 0.06
+        },
+        "weighted_score_0_100": 95.1654938620248,
+        "interpretation": "excellent_trajectory_model_for_reference_free_derivative_analysis"
+      },
+      "trajectory_model_weighted_score_0_100": 95.1654938620248,
+      "component_count": 1,
+      "continuity": {
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 4.3693624864188e-11,
+        "max_internal_velocity_jump_mps": 4.9738573951046616e-11,
+        "max_internal_acceleration_jump_mps2": 3.251994815022669
+      },
+      "adaptive_resegmentation": [
+        {
+          "enabled": true,
+          "final_refinement_depth": 0,
+          "history": []
+        }
+      ]
+    },
+    "bea_v_spline_accurate": {
+      "basis": "clamped_uniform_quintic_bea_v_spline_per_dynamic_segment",
+      "objective": "BEA-V-Spline position evidence plus velocity-derivative evidence plus continuous acceleration regularisation; interior ADS-B evidence is soft and ordinary dynamic-segment joins are hard C0/C1 stitching constraints",
+      "fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+      "paired_sample_count": 3728,
+      "render_keyframe_count": 16017,
+      "segment_count": 48,
+      "global_quality": {
+        "connected_component_count": 1,
+        "segment_count": 48,
+        "internal_boundary_count": 47,
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 2.916416405209741e-11,
+        "max_internal_velocity_jump_mps": 1.573608097850084e-11,
+        "max_internal_acceleration_jump_mps2": 2.0278174069337367,
+        "acceleration_continuity_enforced": false,
+        "event_aware_continuity": {
+          "enabled": true,
+          "normal_join_count": 46,
+          "event_boundary_count": 1,
+          "normal_max_position_jump_m": 2.916416405209741e-11,
+          "normal_max_velocity_jump_mps": 1.573608097850084e-11,
+          "normal_max_acceleration_jump_mps2": 1.3230244876706143,
+          "normal_max_jerk_jump_mps3": 0.5657014840443162,
+          "by_event": {
+            "go_around": {
+              "count": 1,
+              "max_acceleration_jump_mps2": 2.0278174069337367,
+              "max_jerk_jump_mps3": 1.1101706194045118
+            },
+            "hard_gap": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "normal_segment_join": {
+              "count": 46,
+              "max_acceleration_jump_mps2": 1.3230244876706143,
+              "max_jerk_jump_mps3": 0.5657014840443162
+            }
+          }
+        }
+      },
+      "trajectory_model_evaluation": {
+        "enabled": true,
+        "metric_family": "reference_free_trajectory_model_metrics_v1",
+        "truth_data_used": false,
+        "truth_data_note": "all metrics are computed from noisy ADS-B observations, fitted derivatives, render timing, and declared event boundaries; no true/reference trajectory is used",
+        "scientific_intent": "measure whether the output is a useful aircraft trajectory model for derivative analysis, wind-impact hypotheses, pilot/autopilot input signatures, and event-aware continuity",
+        "segment_count": 48,
+        "segment_weighted_score_0_100": 94.0938843429302,
+        "component_mean_scores_0_100": {
+          "observation_position_score": 98.68687339073432,
+          "velocity_evidence_score": 100.0,
+          "finite_difference_kinematics_score": 87.0619559380462,
+          "trajectory_smoothness_score": 100.0,
+          "physical_plausibility_score": 100.0,
+          "dynamic_detail_preservation_score": 63.21546585954673,
+          "derivative_closure_score": 100.0
+        },
+        "by_regime": {
+          "airborne": {
+            "segment_count": 35,
+            "weighted_score_0_100": 93.74804887185864
+          },
+          "approach_final": {
+            "segment_count": 13,
+            "weighted_score_0_100": 94.55125375942856
+          },
+          "ground": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          }
+        },
+        "event_aware_join_score": {
+          "enabled": true,
+          "normal_join_count": 46,
+          "event_boundary_count": 1,
+          "normal_max_acceleration_jump_mps2": 1.3230244876706143,
+          "normal_max_jerk_jump_mps3": 0.5657014840443162,
+          "score_0_100": 97.91828663501158,
+          "note": "scores only normal segment joins; hard gaps, go-arounds, and true discontinuities are reported but not treated as continuity failures"
+        },
+        "hard_gap_honesty": {
+          "enabled": true,
+          "hard_gap_count": 0,
+          "hard_gap_threshold_s": 30.0,
+          "bridged_gap_count": 0,
+          "bridge_frame_count": 0,
+          "score_0_100": 100.0,
+          "note": "no hard surveillance gaps detected from raw timing"
+        },
+        "locality_scope": {
+          "score_0_100": 100.0,
+          "fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+          "reconstruction_backend": "bea_v_spline",
+          "note": "local segmented models score higher for local wind/control analysis; whole-track smoothers remain valid baselines but are less local by design"
+        },
+        "method_component_scores_0_100": {
+          "segment_trajectory_score": 94.0938843429302,
+          "event_aware_join_score": 97.91828663501158,
+          "hard_gap_honesty_score": 100.0,
+          "locality_scope_score": 100.0
+        },
+        "method_score_weights": {
+          "segment_trajectory_score": 0.72,
+          "event_aware_join_score": 0.12,
+          "hard_gap_honesty_score": 0.1,
+          "locality_scope_score": 0.06
+        },
+        "weighted_score_0_100": 95.49779112311113,
+        "interpretation": "excellent_trajectory_model_for_reference_free_derivative_analysis"
+      },
+      "trajectory_model_weighted_score_0_100": 95.49779112311113,
+      "component_count": 1,
+      "continuity": {
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 2.916416405209741e-11,
+        "max_internal_velocity_jump_mps": 1.573608097850084e-11,
+        "max_internal_acceleration_jump_mps2": 2.0278174069337367
+      },
+      "adaptive_resegmentation": [
+        {
+          "enabled": true,
+          "final_refinement_depth": 0,
+          "history": []
+        }
+      ]
+    },
+    "bea_v_spline_smooth": {
+      "basis": "clamped_uniform_quintic_bea_v_spline_per_dynamic_segment",
+      "objective": "BEA-V-Spline position evidence plus velocity-derivative evidence plus continuous acceleration regularisation; interior ADS-B evidence is soft and ordinary dynamic-segment joins are hard C0/C1 stitching constraints",
+      "fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+      "paired_sample_count": 3728,
+      "render_keyframe_count": 16017,
+      "segment_count": 48,
+      "global_quality": {
+        "connected_component_count": 1,
+        "segment_count": 48,
+        "internal_boundary_count": 47,
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 4.381650604207936e-11,
+        "max_internal_velocity_jump_mps": 1.690122042805201e-11,
+        "max_internal_acceleration_jump_mps2": 4.965980978031648,
+        "acceleration_continuity_enforced": false,
+        "event_aware_continuity": {
+          "enabled": true,
+          "normal_join_count": 46,
+          "event_boundary_count": 1,
+          "normal_max_position_jump_m": 4.381650604207936e-11,
+          "normal_max_velocity_jump_mps": 1.690122042805201e-11,
+          "normal_max_acceleration_jump_mps2": 1.2186663410555878,
+          "normal_max_jerk_jump_mps3": 0.2208936415187183,
+          "by_event": {
+            "go_around": {
+              "count": 1,
+              "max_acceleration_jump_mps2": 4.965980978031648,
+              "max_jerk_jump_mps3": 0.47320574043823294
+            },
+            "hard_gap": {
+              "count": 0,
+              "max_acceleration_jump_mps2": 0.0,
+              "max_jerk_jump_mps3": 0.0
+            },
+            "normal_segment_join": {
+              "count": 46,
+              "max_acceleration_jump_mps2": 1.2186663410555878,
+              "max_jerk_jump_mps3": 0.2208936415187183
+            }
+          }
+        }
+      },
+      "trajectory_model_evaluation": {
+        "enabled": true,
+        "metric_family": "reference_free_trajectory_model_metrics_v1",
+        "truth_data_used": false,
+        "truth_data_note": "all metrics are computed from noisy ADS-B observations, fitted derivatives, render timing, and declared event boundaries; no true/reference trajectory is used",
+        "scientific_intent": "measure whether the output is a useful aircraft trajectory model for derivative analysis, wind-impact hypotheses, pilot/autopilot input signatures, and event-aware continuity",
+        "segment_count": 48,
+        "segment_weighted_score_0_100": 92.91013984715941,
+        "component_mean_scores_0_100": {
+          "observation_position_score": 90.20889502040805,
+          "velocity_evidence_score": 99.92206297303204,
+          "finite_difference_kinematics_score": 86.78585915784078,
+          "trajectory_smoothness_score": 100.0,
+          "physical_plausibility_score": 99.98697930114908,
+          "dynamic_detail_preservation_score": 62.151865421492786,
+          "derivative_closure_score": 100.0
+        },
+        "by_regime": {
+          "airborne": {
+            "segment_count": 35,
+            "weighted_score_0_100": 92.76632445813834
+          },
+          "approach_final": {
+            "segment_count": 13,
+            "weighted_score_0_100": 93.10033653333578
+          },
+          "ground": {
+            "segment_count": 0,
+            "weighted_score_0_100": null
+          }
+        },
+        "event_aware_join_score": {
+          "enabled": true,
+          "normal_join_count": 46,
+          "event_boundary_count": 1,
+          "normal_max_acceleration_jump_mps2": 1.2186663410555878,
+          "normal_max_jerk_jump_mps3": 0.2208936415187183,
+          "score_0_100": 98.59081691319732,
+          "note": "scores only normal segment joins; hard gaps, go-arounds, and true discontinuities are reported but not treated as continuity failures"
+        },
+        "hard_gap_honesty": {
+          "enabled": true,
+          "hard_gap_count": 0,
+          "hard_gap_threshold_s": 30.0,
+          "bridged_gap_count": 0,
+          "bridge_frame_count": 0,
+          "score_0_100": 100.0,
+          "note": "no hard surveillance gaps detected from raw timing"
+        },
+        "locality_scope": {
+          "score_0_100": 100.0,
+          "fit_mode": "dynamic_piecewise_bea_v_spline_per_segment_tuned_hard_reported_C0_joins_exact_C1_post_join_harmonized",
+          "reconstruction_backend": "bea_v_spline",
+          "note": "local segmented models score higher for local wind/control analysis; whole-track smoothers remain valid baselines but are less local by design"
+        },
+        "method_component_scores_0_100": {
+          "segment_trajectory_score": 92.91013984715941,
+          "event_aware_join_score": 98.59081691319732,
+          "hard_gap_honesty_score": 100.0,
+          "locality_scope_score": 100.0
+        },
+        "method_score_weights": {
+          "segment_trajectory_score": 0.72,
+          "event_aware_join_score": 0.12,
+          "hard_gap_honesty_score": 0.1,
+          "locality_scope_score": 0.06
+        },
+        "weighted_score_0_100": 94.72619871953846,
+        "interpretation": "excellent_trajectory_model_for_reference_free_derivative_analysis"
+      },
+      "trajectory_model_weighted_score_0_100": 94.72619871953846,
+      "component_count": 1,
+      "continuity": {
+        "position_continuity_ok": true,
+        "velocity_continuity_ok": true,
+        "max_internal_position_jump_m": 4.381650604207936e-11,
+        "max_internal_velocity_jump_mps": 1.690122042805201e-11,
+        "max_internal_acceleration_jump_mps2": 4.965980978031648
+      },
+      "adaptive_resegmentation": [
+        {
+          "enabled": true,
+          "final_refinement_depth": 0,
+          "history": []
+        }
+      ]
+    }
+  }
+}

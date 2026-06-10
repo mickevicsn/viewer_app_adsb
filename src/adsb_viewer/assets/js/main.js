@@ -96,7 +96,7 @@ function availableMethods(flight) {
 const APP_MODE_NORMAL = "normal";
 const APP_MODE_PRESENTATION = "presentation";
 const PRESENTATION_FLIGHT_ID = "4BAAD9";
-const PRESENTATION_METHOD_ID = "aviation_v_spline_quintic_balanced";
+const PRESENTATION_METHOD_ID = "bea_v_spline_accurate";
 const INTERNAL_LOAD_TOKEN_PARAM = "viewerLoadToken";
 const VIEWER_BUILD_ID = "presentation_mode_v7_no_camera_debug";
 const INTERNAL_LOAD_CONTEXT_STORAGE_KEY = "adsbViewerInternalLoadContextV6";
@@ -561,7 +561,7 @@ function showModeChooser() {
   }
 
   title.textContent = "Choose app mode";
-  message.textContent = "Presentation locks the viewer to flight 4BAAD9 and starts with the balanced quintic V-spline method. Normal App keeps the full flight/method selector.";
+  message.textContent = "Presentation locks the viewer to flight 4BAAD9 and starts with the BEA-V-Spline (accurate) method. Normal App keeps the full flight/method selector.";
   list.innerHTML = "";
   list.classList.add("choice-list");
 
@@ -569,7 +569,7 @@ function showModeChooser() {
     list.appendChild(createChoiceButton({
       name: "Presentation",
       badge: "4BAAD9",
-      meta: "Load aviation_v_spline_quintic_balanced.json first. Reset will only offer methods for this flight.",
+      meta: "Load bea_v_spline_accurate.json first. Reset will only offer methods for this flight.",
       onClick: () => {
         overlay.classList.add("hidden");
         list.classList.remove("choice-list");
